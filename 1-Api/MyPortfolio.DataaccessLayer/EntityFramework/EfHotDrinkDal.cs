@@ -14,6 +14,7 @@ namespace MyPortfolio.DataaccessLayer.EntityFramework
 	{
 		public EfHotDrinkDal(Context context) : base(context)
 		{
+
 		}
 	}
 }
