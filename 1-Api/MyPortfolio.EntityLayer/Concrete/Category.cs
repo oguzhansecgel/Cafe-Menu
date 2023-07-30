@@ -11,10 +11,8 @@ namespace MyPortfolio.EntityLayer.Concrete
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
 
-        public ICollection<Food> Food { get; set; }
-        public ICollection<HotDrink> HotDrink { get; set; }
-        public ICollection<ColdDrink> ColdDrink { get; set; }
-        public ICollection<Dessert> Dessert { get; set; }
 
-    }
+		public ICollection<Product> Products { get; set; }
+
+	}
 }

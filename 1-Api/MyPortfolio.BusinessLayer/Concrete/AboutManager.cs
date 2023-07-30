@@ -30,7 +30,7 @@ namespace MyPortfolio.BusinessLayer.Concrete
 
 		public About TGetById(int id)
 		{
-			return _aboutdal.GetById(id);
+			return _aboutdal.GetByID(id);
 		}
 
 		public void TInsert(About t)

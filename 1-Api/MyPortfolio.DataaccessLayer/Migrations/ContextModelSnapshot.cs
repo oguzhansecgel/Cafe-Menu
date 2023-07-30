@@ -59,175 +59,43 @@ namespace MyPortfolio.DataaccessLayer.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.ColdDrink", b =>
+            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Product", b =>
                 {
-                    b.Property<int>("ColdDrinkID")
+                    b.Property<int>("ProductID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ColdDrinkID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"), 1L, 1);
 
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
-                    b.Property<string>("ColdDrinkDescription")
+                    b.Property<string>("ProductDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ColdDrinkImage")
+                    b.Property<string>("ProductImage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ColdDrinkName")
+                    b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ColdDrinkPrice")
+                    b.Property<int>("ProductPrice")
                         .HasColumnType("int");
 
-                    b.HasKey("ColdDrinkID");
+                    b.HasKey("ProductID");
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("ColdDrinks");
+                    b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Dessert", b =>
-                {
-                    b.Property<int>("DessertID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DessertID"), 1L, 1);
-
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DessertDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DessertImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DessertName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DessertPrice")
-                        .HasColumnType("int");
-
-                    b.HasKey("DessertID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("Desserts");
-                });
-
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Food", b =>
-                {
-                    b.Property<int>("FoodID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodID"), 1L, 1);
-
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FoodDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FoodImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FoodName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FoodPrice")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("Foods");
-                });
-
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.HotDrink", b =>
-                {
-                    b.Property<int>("HotDrinkID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HotDrinkID"), 1L, 1);
-
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("HotDrinkDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HotDrinkImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HotDrinkName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("HotDrinkPrice")
-                        .HasColumnType("int");
-
-                    b.HasKey("HotDrinkID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("HotDrinks");
-                });
-
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.ColdDrink", b =>
+            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Product", b =>
                 {
                     b.HasOne("MyPortfolio.EntityLayer.Concrete.Category", "Category")
-                        .WithMany("ColdDrink")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Dessert", b =>
-                {
-                    b.HasOne("MyPortfolio.EntityLayer.Concrete.Category", "Category")
-                        .WithMany("Dessert")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Food", b =>
-                {
-                    b.HasOne("MyPortfolio.EntityLayer.Concrete.Category", "Category")
-                        .WithMany("Food")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.HotDrink", b =>
-                {
-                    b.HasOne("MyPortfolio.EntityLayer.Concrete.Category", "Category")
-                        .WithMany("HotDrink")
+                        .WithMany("Products")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -237,13 +105,7 @@ namespace MyPortfolio.DataaccessLayer.Migrations
 
             modelBuilder.Entity("MyPortfolio.EntityLayer.Concrete.Category", b =>
                 {
-                    b.Navigation("ColdDrink");
-
-                    b.Navigation("Dessert");
-
-                    b.Navigation("Food");
-
-                    b.Navigation("HotDrink");
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

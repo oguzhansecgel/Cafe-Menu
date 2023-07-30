@@ -20,8 +20,7 @@ namespace MyPortfolio.DataaccessLayer.Repository
 		{
 			return _context.Set<T>().ToList();
 		}
-
-		public T GetById(int id)
+		public T GetByID(int id)
 		{
 			return _context.Set<T>().Find(id);
 		}
@@ -42,5 +41,7 @@ namespace MyPortfolio.DataaccessLayer.Repository
 			_context.Update(t);
 			_context.SaveChanges();
 		}
+
+		
 	}
 }

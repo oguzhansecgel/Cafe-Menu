@@ -11,6 +11,19 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 builder.Services.AddScoped<IAboutService, AboutManager>();
 
+builder.Services.AddScoped<ICategoryDal,EfCategoryDal>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
+
+builder.Services.AddScoped<IProductDal, EfProductDal>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+
+builder.Services.AddCors(opt =>
+{
+	opt.AddPolicy("CafeApiCors", opts =>
+	{
+		opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+	});
+});
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -31,7 +44,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
+app.UseCors("CafeApiCors");
 app.MapControllers();
 
 app.Run();

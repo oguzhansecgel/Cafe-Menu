@@ -8,10 +8,10 @@ namespace MyPortfolio.DataaccessLayer.Abstract
 {
 	public interface IGenericDal<T> where T : class
 	{
-		T GetById(int id);
-		List<T> GetAll();
 		void Insert(T t);
-		void Update(T t);
 		void Delete(T t);
+		void Update(T t);
+		List<T> GetAll();
+		T GetByID(int id);
 	}
 }

@@ -18,10 +18,7 @@ namespace MyPortfolio.DataaccessLayer.Concrete
 
 		public DbSet<About> Abouts { get; set; }
 		public DbSet<Category> Categories{ get; set; }
-		public DbSet<Food> Foods{ get; set; }
-		public DbSet<Dessert>Desserts{ get; set; }
-		public DbSet<ColdDrink>ColdDrinks{ get; set; }
-		public DbSet<HotDrink>HotDrinks{ get; set; }
+		public DbSet<Product>Products{ get; set; }
 
 	}
 }

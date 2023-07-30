@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.DataaccessLayer.EntityFramework
 {
-	internal class EfCategoryDal : GenericRepository<Category>, ICategoryDal
+	public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
 	{
 		public EfCategoryDal(Context context) : base(context)
 		{

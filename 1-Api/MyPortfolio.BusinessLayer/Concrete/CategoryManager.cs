@@ -30,7 +30,7 @@ namespace MyPortfolio.BusinessLayer.Concrete
 
 		public Category TGetById(int id)
 		{
-			return _categoryDal.GetById(id);
+			return _categoryDal.GetByID(id);
 		}
 
 		public void TInsert(Category t)
