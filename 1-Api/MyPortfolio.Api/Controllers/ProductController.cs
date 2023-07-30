@@ -21,33 +21,35 @@ namespace MyPortfolio.Api.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult AboutList()
+		public IActionResult ProductList()
 		{
 			var values = _productService.TGetAll();
 			return Ok(values);
 		}
 		[HttpPost]
-		public IActionResult AddAbout(AddProductDto addProductDto)
+		public IActionResult AddAProduct(AddProductDto addProductDto)
 		{
 			var product = _mapper.Map<Product>(addProductDto);
 			_productService.TInsert(product);
 			return Ok();
 		}
-		[HttpDelete]
-		public IActionResult DeleteAbout(int id)
+		[HttpDelete("{id}")]
+
+		public IActionResult DeleteProduct(int id)
 		{
 			var values = _productService.TGetById(id);
 			_productService.TDelete(values);
 			return Ok();
 		}
 		[HttpPut]
-		public IActionResult UpdateAbout(Product product)
+		public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
 		{
-			_productService.TUpdate(product);
-			return Ok();
-		}
+            var product = _mapper.Map<Product>(updateProductDto);
+            _productService.TUpdate(product);
+            return Ok();
+        }
 		[HttpGet("{id}")]
-		public IActionResult GetAbout(int id)
+		public IActionResult GetProduct(int id)
 		{
 			var values = _productService.TGetById(id);
 			return Ok(values);

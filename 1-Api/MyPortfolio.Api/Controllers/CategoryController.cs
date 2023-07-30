@@ -12,45 +12,46 @@ namespace MyPortfolio.Api.Controllers
 	[ApiController]
 	public class CategoryController : ControllerBase
 	{
-		private readonly ICategoryService categoryService;
+		private readonly ICategoryService _categoryService;
 		private readonly IMapper _mapper;
 
 		public CategoryController(ICategoryService categoryService, IMapper mapper)
 		{
-			this.categoryService = categoryService;
+			_categoryService = categoryService;
 			_mapper = mapper;
 		}
 
 		[HttpGet]
 		public IActionResult CategoryList()
 		{
-			var values = categoryService.TGetAll();
+			var values = _categoryService.TGetAll();
 			return Ok(values);
 		}
 		[HttpPost]
 		public IActionResult AddCategory(AddCategoryDto addCategoryDto)
 		{
 			var category = _mapper.Map<Category>(addCategoryDto);
-			categoryService.TInsert(category);
+            _categoryService.TInsert(category);
 			return Ok();
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public IActionResult DeleteCategory(int id)
 		{
-			var values = categoryService.TGetById(id);
-			categoryService.TDelete(values);
+			var values = _categoryService.TGetById(id);
+            _categoryService.TDelete(values);
 			return Ok();
 		}
 		[HttpPut]
-		public IActionResult UpdateCategory(Category category)
+		public IActionResult UpdateCategory(UpdateCategoryDto updateCategoryDto)
 		{
-			categoryService.TUpdate(category);
-			return Ok();
-		}
+            var category = _mapper.Map<Category>(updateCategoryDto);
+            _categoryService.TUpdate(category);
+            return Ok();
+        }
 		[HttpGet("{id}")]
 		public IActionResult GetCategory(int id)
 		{
-			var values = categoryService.TGetById(id);
+			var values = _categoryService.TGetById(id);
 			return Ok(values);
 		}
 	}

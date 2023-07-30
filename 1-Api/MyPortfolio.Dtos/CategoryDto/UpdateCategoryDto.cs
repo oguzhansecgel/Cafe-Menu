@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.Dtos.CategoryDto
 {
-	public class AddCategoryDto
-	{
+    public class UpdateCategoryDto
+    {
         public int CategoryID { get; set; }
 
         public string CategoryName { get; set; }
-
-	}
+    }
 }
