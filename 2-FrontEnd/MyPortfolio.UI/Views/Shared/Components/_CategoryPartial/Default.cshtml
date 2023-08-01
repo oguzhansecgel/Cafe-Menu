@@ -1,0 +1,15 @@
+﻿@model List<ResultCategoryDto>
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<ul class="nav nav-tabs nav-tabs-classic">
+    @foreach (var item in Model)
+    {
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" href="" data-toggle="tab">@item.CategoryName</a>
+        </li>
+    }
+</ul>
+
+

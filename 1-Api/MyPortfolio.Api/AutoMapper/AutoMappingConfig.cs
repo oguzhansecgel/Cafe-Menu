@@ -14,6 +14,7 @@ namespace MyPortfolio.Api.AutoMapper
 
             CreateMap<AddCategoryDto, Category>().ReverseMap();
             CreateMap<UpdateCategoryDto, Category>().ReverseMap();
+            CreateMap<ResultCategoryDto, Category>().ReverseMap();
 
 
 

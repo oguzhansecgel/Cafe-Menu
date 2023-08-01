@@ -12,8 +12,8 @@ namespace MyPortfolio.Api.Controllers
 	[ApiController]
 	public class CategoryController : ControllerBase
 	{
-		private readonly ICategoryService _categoryService;
-		private readonly IMapper _mapper;
+		private readonly ICategoryService _categoryService;		
+        private readonly IMapper _mapper;
 
 		public CategoryController(ICategoryService categoryService, IMapper mapper)
 		{
@@ -54,5 +54,8 @@ namespace MyPortfolio.Api.Controllers
 			var values = _categoryService.TGetById(id);
 			return Ok(values);
 		}
-	}
+
+ 
+
+    }
 }

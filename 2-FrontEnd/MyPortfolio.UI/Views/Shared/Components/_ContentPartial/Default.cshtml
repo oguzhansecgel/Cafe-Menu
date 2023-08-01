@@ -1,0 +1,23 @@
+﻿@model List<ResultProductDto>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="tab-content">
+	<div class="tab-pane fade show active" id="tabs-1-1">
+		<div class="box-event-modern">
+			@foreach (var item in Model)
+			{
+				
+			<div class="event-item-modern">
+				<p class="event-time">@item.ProductPrice</p>
+				<h4 class="event-item-modern-title"><a href="#">@item.ProductName</a></h4>
+				<div class="event-item-modern-text">
+					<p>Osso Buco is one of the Italian greats - slow cooked veal in a white wine tomato sauce. Meltingly tender, this is both hearty and luxurious.</p>
+				</div>
+			</div>
+			}
+
+		</div>
+	</div>
+</div>
+ 
