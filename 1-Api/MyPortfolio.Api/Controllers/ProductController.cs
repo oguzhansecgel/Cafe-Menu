@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.Dtos.ProductDto;
@@ -19,6 +20,7 @@ namespace MyPortfolio.Api.Controllers
 		{
 			_productService = productService;
 			_mapper = mapper;
+
 		}
 
 		[HttpGet]
@@ -60,5 +62,6 @@ namespace MyPortfolio.Api.Controllers
 			var values = _productService.TGetById(id);
 			return Ok(values);
 		}
+ 
 	}
 }

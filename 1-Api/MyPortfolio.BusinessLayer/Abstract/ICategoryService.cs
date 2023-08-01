@@ -9,7 +9,8 @@ namespace MyPortfolio.BusinessLayer.Abstract
 {
 	public interface ICategoryService : IGenericService<Category>
 	{
-        
 
-    }
+	 
+
+	}
 }

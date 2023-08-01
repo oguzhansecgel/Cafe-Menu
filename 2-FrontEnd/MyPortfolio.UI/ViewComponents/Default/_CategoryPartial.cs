@@ -24,5 +24,7 @@ namespace MyPortfolio.UI.ViewComponents.Default
             }
             return View();
         }
+
+
     }
 }

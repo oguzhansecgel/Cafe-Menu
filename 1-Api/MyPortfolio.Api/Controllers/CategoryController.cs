@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.BusinessLayer.Abstract;
+using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.Dtos.CategoryDto;
 using MyPortfolio.Dtos.ProductDto;
 using MyPortfolio.EntityLayer.Concrete;
@@ -13,12 +14,15 @@ namespace MyPortfolio.Api.Controllers
 	public class CategoryController : ControllerBase
 	{
 		private readonly ICategoryService _categoryService;		
-        private readonly IMapper _mapper;
-
-		public CategoryController(ICategoryService categoryService, IMapper mapper)
+		private readonly IProductService _productService;
+		private readonly IMapper _mapper;
+		private readonly Context _context;
+		public CategoryController(ICategoryService categoryService, IMapper mapper, IProductService productService, Context context)
 		{
 			_categoryService = categoryService;
 			_mapper = mapper;
+			_productService = productService;
+			_context = context;
 		}
 
 		[HttpGet]
@@ -52,10 +56,17 @@ namespace MyPortfolio.Api.Controllers
 		public IActionResult GetCategory(int id)
 		{
 			var values = _categoryService.TGetById(id);
+
 			return Ok(values);
 		}
 
-      
+		// kategoriye göre ürün listeleme
+		[HttpGet("products/{categoryId}")]
+		public IActionResult GetProductsByCategoryId(int categoryId)
+		{
+			var products = _context.Products.Where(p => p.CategoryID == categoryId).ToList();
+			return Ok(products);
+		}
 
-    }
+	}
 }

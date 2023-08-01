@@ -1,4 +1,5 @@
-﻿using MyPortfolio.DataaccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyPortfolio.DataaccessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.DataaccessLayer.Repository;
 using MyPortfolio.EntityLayer.Concrete;
@@ -12,8 +13,11 @@ namespace MyPortfolio.DataaccessLayer.EntityFramework
 {
 	public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
 	{
+
 		public EfCategoryDal(Context context) : base(context)
 		{
+
 		}
+ 
 	}
 }

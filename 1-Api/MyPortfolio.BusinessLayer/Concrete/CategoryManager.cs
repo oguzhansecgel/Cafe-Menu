@@ -17,6 +17,7 @@ namespace MyPortfolio.BusinessLayer.Concrete
 		{
 			_categoryDal = categoryDal;
 		}
+ 
 
 		public void TDelete(Category t)
 		{
@@ -42,5 +43,6 @@ namespace MyPortfolio.BusinessLayer.Concrete
 		{
 			_categoryDal.Update(t);
 		}
+
 	}
 }

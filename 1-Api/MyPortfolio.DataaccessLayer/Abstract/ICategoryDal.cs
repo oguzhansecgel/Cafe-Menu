@@ -9,5 +9,6 @@ namespace MyPortfolio.DataaccessLayer.Abstract
 {
 	public interface ICategoryDal : IGenericDal<Category>
 	{
+		 
 	}
 }
