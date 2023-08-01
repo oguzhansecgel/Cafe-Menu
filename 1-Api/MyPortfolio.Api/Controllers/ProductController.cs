@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.Dtos.ProductDto;
 using MyPortfolio.EntityLayer.Concrete;
@@ -29,9 +30,14 @@ namespace MyPortfolio.Api.Controllers
 		[HttpPost]
 		public IActionResult AddAProduct(AddProductDto addProductDto)
 		{
-			var product = _mapper.Map<Product>(addProductDto);
-			_productService.TInsert(product);
-			return Ok();
+			if(ModelState.IsValid)
+			{
+                var product = _mapper.Map<Product>(addProductDto);
+                _productService.TInsert(product);
+                return Ok();
+            }
+			return BadRequest();
+			
 		}
 		[HttpDelete("{id}")]
 
