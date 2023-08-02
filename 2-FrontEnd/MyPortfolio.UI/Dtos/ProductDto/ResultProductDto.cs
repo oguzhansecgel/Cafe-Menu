@@ -9,6 +9,7 @@
         public string ProductImage { get; set; }
 
         public int CategoryID { get; set; }
+ 
 
 	}
 }

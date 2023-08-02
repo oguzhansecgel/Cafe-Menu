@@ -14,6 +14,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 	public class ProductController : Controller
 	{
         Context c = new Context();
+
         private readonly IHttpClientFactory _httpClientFactory;
 
         public ProductController(IHttpClientFactory httpClientFactory)
@@ -30,7 +31,9 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
             {
                 var jsonData = await responserMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
-                return View(values);
+                   
+
+				return View(values);
             }
             return View();
         }

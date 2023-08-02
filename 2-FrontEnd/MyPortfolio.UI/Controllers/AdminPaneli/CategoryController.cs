@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.UI.Dtos.AboutDto;
 using MyPortfolio.UI.Dtos.CategoryDto;
 using Newtonsoft.Json;
@@ -9,10 +11,10 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
     public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
         public CategoryController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
+
         }
 
         public async Task<IActionResult> Index()
@@ -24,6 +26,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
             {
                 var jsonData = await responserMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+                
                 return View(values);
             }
             return View();
@@ -91,5 +94,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			}
 			return View();
 		}
-	}
+
+       
+    }
 }

@@ -7,7 +7,8 @@
     @foreach (var item in Model)
     {
         <li class="nav-item" role="presentation">
-            <a class="nav-link" href="/Default/Index/@item.CategoryID" data-category-id="@item.CategoryID" data-toggle="tab">@item.CategoryName</a>
+            @*<a class="nav-link" href="/Default/Index/@item.CategoryID" data-category-id="@item.CategoryID" data-toggle="tab">@item.CategoryName</a>*@
+            <button class="nav-link" onclick="getContentDetail('@item.CategoryID')">@item.CategoryName</button>
         </li>
     }
 </ul>

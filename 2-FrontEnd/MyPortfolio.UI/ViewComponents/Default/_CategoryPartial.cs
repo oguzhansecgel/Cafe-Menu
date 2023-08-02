@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.UI.Dtos.CategoryDto;
 using Newtonsoft.Json;
 
@@ -11,6 +12,7 @@ namespace MyPortfolio.UI.ViewComponents.Default
         public _CategoryPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
+
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
@@ -24,6 +26,8 @@ namespace MyPortfolio.UI.ViewComponents.Default
             }
             return View();
         }
+       
+
 
 
     }

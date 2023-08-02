@@ -1,36 +1,34 @@
 ﻿@model ResultCategoryDto
 @{
-    Layout = null;
+	Layout = null;
 
 }
 
-<!DOCTYPE html>
-<html class="wide wow-animation" lang="en">
-    @await Component.InvokeAsync("_HeadPartial")
-<body>
-    <div class="preloader">
-    </div>
-    <div class="page">
-        <!-- Page Header-->
-        <section class="section section-lg bg-gray-1">
-            <div class="container">
-                @await Component.InvokeAsync("_AboutPartial")
+@await Component.InvokeAsync("_HeadPartial")
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="tabs-custom tabs-horizontal tabs-classic" id="tabs-1">
-                            @await Component.InvokeAsync("_CategoryPartial")
-                            @await Component.InvokeAsync("_ContentPartial")
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Page Footer-->
-       @await Component.InvokeAsync("_FooterPartial")
-    </div>
-    <div class="snackbars" id="form-output-global"></div>
-    @await Component.InvokeAsync("_ScriptPartial")
+	<div class="preloader">
+	</div>
+	<div class="page">
+		<!-- Page Header-->
+		<section class="section section-lg bg-gray-1">
+			<div class="container">
+				@await Component.InvokeAsync("_AboutPartial")
 
-</body>
-</html>
+				<div class="row">
+					<div class="col-12">
+						<div class="tabs-custom tabs-horizontal tabs-classic" id="tabs-1">
+							@await Component.InvokeAsync("_CategoryPartial")
+							<div id="content">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Page Footer-->
+		@await Component.InvokeAsync("_FooterPartial")
+	</div>
+	<div class="snackbars" id="form-output-global"></div>
+	@await Component.InvokeAsync("_ScriptPartial")
+
+ 

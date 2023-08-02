@@ -9,5 +9,13 @@ namespace MyPortfolio.UI.Controllers.UI
             return View();
         }
 
+        public IActionResult GetContentDetail([FromQuery]int categoryId)
+        {
+            return ViewComponent("_ContentPartial", new
+            {
+                categoryId = categoryId
+            }) ;
+        }
     }
 }
+ 

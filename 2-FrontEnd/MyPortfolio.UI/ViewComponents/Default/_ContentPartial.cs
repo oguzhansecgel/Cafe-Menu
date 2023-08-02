@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace MyPortfolio.UI.ViewComponents.Default
 {
-    public class _ContentPartial : ViewComponent
+    public class _ContentPartial : ViewComponent 
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -13,10 +13,11 @@ namespace MyPortfolio.UI.ViewComponents.Default
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(int categoryId)
         {
+           
             var client = _httpClientFactory.CreateClient();
-            var responserMessage = await client.GetAsync("http://localhost:5185/api/Product");
+            var responserMessage = await client.GetAsync($"http://localhost:5185/api/Category/products/{categoryId}");
             if (responserMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responserMessage.Content.ReadAsStringAsync();

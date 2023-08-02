@@ -12,18 +12,22 @@
 		<th>Ürün fotoğrafı</th>
 		<th>Ürün açıklaması</th>
 		<th>Kategorisi</th>
+ 
 		<th>Güncelle</th>
 		<th>Sil</th>
 	</tr>
 	@foreach (var item in Model)
 	{
 		{
+			
 			<tr>
 				<th>@item.ProductName</th>
 				<th>@item.ProductPrice</th>
 				<th>@item.ProductImage</th>
 				<th>@item.ProductDescription</th>
 				<th>@item.CategoryID</th>
+ 
+ 
 
 				<td><a href="/Product/UpdateProduct/@item.ProductID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
 				<td><a href="/Product/DeleteProduct/@item.ProductID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
