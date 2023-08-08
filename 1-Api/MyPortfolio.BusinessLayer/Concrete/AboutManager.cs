@@ -1,4 +1,5 @@
-﻿using MyPortfolio.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Abstract;
 using MyPortfolio.EntityLayer.Concrete;
 using System;
@@ -12,14 +13,16 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class AboutManager : IAboutService
 	{
 		private readonly IAboutDal _aboutdal;
-
-		public AboutManager(IAboutDal aboutdal)
+		private readonly IMapper _mapper;
+		public AboutManager(IAboutDal aboutdal, IMapper mapper)
 		{
 			_aboutdal = aboutdal;
+			_mapper = mapper;
 		}
 
 		public void TDelete(About t)
 		{
+				
 			_aboutdal.Delete(t);
 		}
 

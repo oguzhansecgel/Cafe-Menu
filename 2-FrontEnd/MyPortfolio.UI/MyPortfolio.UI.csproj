@@ -26,4 +26,12 @@
     <ProjectReference Include="..\..\1-Api\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="image\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\site\images\cay.jpg" />
+  </ItemGroup>
+
 </Project>

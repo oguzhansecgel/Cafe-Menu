@@ -1,5 +1,7 @@
-﻿using MyPortfolio.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Abstract;
+using MyPortfolio.Dtos.ProductDto;
 using MyPortfolio.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,10 +14,11 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class ProductManager : IProductService
 	{
 		private readonly IProductDal _productDal;
-
-		public ProductManager(IProductDal productDal)
+		private readonly IMapper _mapper;
+		public ProductManager(IProductDal productDal, IMapper mapper)
 		{
 			_productDal = productDal;
+			_mapper = mapper;
 		}
 
 		public List<Product> TGetAll()

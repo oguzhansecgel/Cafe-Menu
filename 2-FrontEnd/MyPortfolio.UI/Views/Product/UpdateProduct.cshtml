@@ -19,7 +19,7 @@
     <input type="text" asp-for="ProductDescription" class="form-control" />
     <br />
     <label>Ürün Kategorisi</label>
-    <input type="text" asp-for="CategoryID" class="form-control" />
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new{@class="from-control"})
     <br />
     <button class="btn btn-outline-success">Ürün Güncelle</button>
 </form>

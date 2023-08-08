@@ -1,4 +1,5 @@
-﻿using MyPortfolio.EntityLayer.Concrete;
+﻿using MyPortfolio.DataaccessLayer.Migrations;
+using MyPortfolio.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace MyPortfolio.BusinessLayer.Abstract
 {
 	public interface IAboutService : IGenericService<About>
 	{
+		
 	}
 }

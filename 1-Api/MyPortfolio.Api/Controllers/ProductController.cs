@@ -46,6 +46,17 @@ namespace MyPortfolio.Api.Controllers
 		public IActionResult DeleteProduct(int id)
 		{
 			var values = _productService.TGetById(id);
+			if(values==null) // gelen id değeri boş dönüyorsa
+			{
+				var errorResponse = new // hata
+				{
+					Error = "Urun Bulunamadi"
+				};
+				return new JsonResult(errorResponse)
+				{
+					StatusCode = 404 
+				};
+			}
 			_productService.TDelete(values);
 			return Ok();
 		}

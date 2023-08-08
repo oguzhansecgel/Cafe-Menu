@@ -3,11 +3,11 @@
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
 <ul class="nav nav-tabs nav-tabs-classic">
     @foreach (var item in Model)
     {
         <li class="nav-item" role="presentation">
-            @*<a class="nav-link" href="/Default/Index/@item.CategoryID" data-category-id="@item.CategoryID" data-toggle="tab">@item.CategoryName</a>*@
             <button class="nav-link" onclick="getContentDetail('@item.CategoryID')">@item.CategoryName</button>
         </li>
     }

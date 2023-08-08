@@ -34,9 +34,15 @@ namespace MyPortfolio.Api.Controllers
 		[HttpPost]
 		public IActionResult AddCategory(AddCategoryDto addCategoryDto)
 		{
-			var category = _mapper.Map<Category>(addCategoryDto);
-            _categoryService.TInsert(category);
-			return Ok();
+			if(ModelState.IsValid)
+			{
+				var category = _mapper.Map<Category>(addCategoryDto);
+				_categoryService.TInsert(category);
+				return Ok();
+			}
+			else
+				return BadRequest();
+			
 		}
 		[HttpDelete("{id}")]
 		public IActionResult DeleteCategory(int id)
@@ -61,7 +67,7 @@ namespace MyPortfolio.Api.Controllers
 		}
 
 		// kategoriye göre ürün listeleme
-		[HttpGet("products/{categoryId}")]
+		[HttpGet("product{categoryId}")]
 		public IActionResult GetProductsByCategoryId(int categoryId)
 		{
 			var products = _context.Products.Where(p => p.CategoryID == categoryId).ToList();

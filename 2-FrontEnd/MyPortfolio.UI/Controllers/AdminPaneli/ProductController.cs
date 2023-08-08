@@ -71,7 +71,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:5185/api/Product", stringContent);
+            var responseMessage = await client.PostAsync("http://localhost:5185/api/Product/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -85,6 +85,14 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:5185/api/Product/{id}");
+            List<SelectListItem> value = (from x in c.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CategoryName,
+                                               Value = x.CategoryID.ToString()
+                                           }
+                              ).ToList();
+            ViewBag.v1 = value;
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -101,6 +109,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
             var jsonData = JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PutAsync($"http://localhost:5185/api/Product/", stringContent);
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

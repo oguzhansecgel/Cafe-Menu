@@ -37,7 +37,7 @@ namespace MyPortfolio.BusinessLayer.Validation.Products
 
             RuleFor(x => x.ProductDescription)
                 .NotEmpty().WithMessage("Açıklama alanı boş geçilemez")
-                .MinimumLength(1).WithMessage("en az 1 veri girişi yapın")
+                .MinimumLength(5).WithMessage("en az 1 veri girişi yapın")
                 .MaximumLength(255).WithMessage("en fazla 255 karakterlik veri girişi yapılabilir");
             #endregion
 

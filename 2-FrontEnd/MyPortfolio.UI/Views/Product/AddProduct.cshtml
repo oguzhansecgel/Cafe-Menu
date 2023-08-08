@@ -22,7 +22,8 @@
 	@* <span asp-validation-for="Name" class="text-danger"></span>*@
 	<br />
 	<label>Ürün Kategorisi</label>
-	 @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new{@class="from-control"})
+	@Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new{@class="from-control"})
+
 
 	@* <span asp-validation-for="Name" class="text-danger"></span>*@
 	<br />
