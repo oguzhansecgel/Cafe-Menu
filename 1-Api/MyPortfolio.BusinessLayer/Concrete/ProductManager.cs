@@ -44,5 +44,6 @@ namespace MyPortfolio.BusinessLayer.Concrete
 		{
 			_productDal.Update(t);
 		}
-	}
+ 
+    }
 }

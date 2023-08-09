@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.UI.Dtos.AboutDto;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
+     
     public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

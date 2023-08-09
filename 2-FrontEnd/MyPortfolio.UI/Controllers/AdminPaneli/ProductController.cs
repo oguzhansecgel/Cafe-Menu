@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DataaccessLayer.Concrete;
@@ -11,7 +12,8 @@ using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-	public class ProductController : Controller
+     
+    public class ProductController : Controller
 	{
         Context c = new Context();
 

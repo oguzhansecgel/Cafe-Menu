@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MyPortfolio.EntityLayer.Concrete;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.DataaccessLayer.Concrete
 {
-	public class Context : DbContext
+	public class Context : IdentityDbContext<AppUser,AppRole,int>
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{

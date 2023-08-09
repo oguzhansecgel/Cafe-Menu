@@ -13,6 +13,7 @@ using MyPortfolio.Dtos.ProductDto;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddFluentValidation();
+
 builder.Services.AddTransient<IValidator<AddProductDto>, CreateProductValidator>();
 builder.Services.AddTransient<IValidator<AddCategoryDto>, CreateCategoryValidator>();
 //builder.Services.AddValidatorsFromAssemblyContaining(typeof(AddProductDto));
