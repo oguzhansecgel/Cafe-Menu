@@ -9,6 +9,7 @@ namespace MyPortfolio.Dtos.AppUserDto
 {
 	public class AddAppUserDto
 	{
+		 
 		public string Name { get; set; }
 
 		public string Surname { get; set; }

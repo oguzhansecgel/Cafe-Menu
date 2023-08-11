@@ -28,5 +28,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
  
 		}
-	}
+
+      
+    }
 }

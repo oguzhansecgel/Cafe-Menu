@@ -9,6 +9,7 @@ namespace MyPortfolio.EntityLayer.Concrete
 {
     public class Appuser : IdentityUser<int>
     {
+        
         public string Name { get; set; }
         public string Surname { get; set; }
         

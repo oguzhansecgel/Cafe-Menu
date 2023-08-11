@@ -27,6 +27,12 @@ namespace MyPortfolio.Api.Controllers
 			var values = _appUserService.TGetAll();
 			return Ok(values);
 		}
-
-	}
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAppUser(int id)
+        {
+            var values = _appUserService.TGetById(id);
+            _appUserService.TDelete(values);
+            return Ok();
+        }
+    }
 }
