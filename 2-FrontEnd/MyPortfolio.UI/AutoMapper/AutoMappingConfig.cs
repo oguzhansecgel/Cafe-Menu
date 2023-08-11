@@ -5,6 +5,7 @@ using MyPortfolio.UI.Dtos.CategoryDto;
 using MyPortfolio.UI.Dtos.LoginDto;
 using MyPortfolio.UI.Dtos.ProductDto;
 using MyPortfolio.UI.Dtos.RegisterDto;
+using MyPortfolio.UI.Dtos.UserDto;
 
 namespace MyPortfolio.UI.AutoMapper
 {
@@ -25,8 +26,10 @@ namespace MyPortfolio.UI.AutoMapper
 			CreateMap<AddProductDto, Product>().ReverseMap();
 			CreateMap<UpdateProductDto, Product>().ReverseMap();
 
-			CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
-			CreateMap<LoginUserDto, AppUser>().ReverseMap();
+			CreateMap<CreateNewUserDto, Appuser>().ReverseMap();
+			CreateMap<LoginUserDto, Appuser>().ReverseMap();
+
+			CreateMap<ResultUserDto, Appuser>().ReverseMap();
 
 		}
     }

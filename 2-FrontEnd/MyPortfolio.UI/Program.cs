@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<Context>();
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+builder.Services.AddIdentity<Appuser,AppRole>().AddEntityFrameworkStores<Context>();
 builder.Services.AddMvc(config =>
 {
     var policy = new AuthorizationPolicyBuilder()
@@ -21,8 +21,8 @@ builder.Services.AddMvc(config =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(100);
-    options.LoginPath = "/Login/Index";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.LoginPath = "/Login/Index/";
 });
 var app = builder.Build();
 
@@ -34,7 +34,8 @@ if (!app.Environment.IsDevelopment())
 	app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
-
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
+app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();

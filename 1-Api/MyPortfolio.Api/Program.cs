@@ -27,6 +27,10 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 
+builder.Services.AddScoped<IAppUserDal,EfAppUserDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+
+
 builder.Services.AddCors(opt =>
 {
 	opt.AddPolicy("CafeApiCors", opts =>

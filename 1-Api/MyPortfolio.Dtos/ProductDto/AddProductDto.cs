@@ -10,7 +10,7 @@ namespace MyPortfolio.Dtos.ProductDto
 	public class AddProductDto
 	{
 		
-		public int ProductPrice { get; set; }
+		public Decimal ProductPrice { get; set; }
 
 		public string ProductName { get; set; }
 

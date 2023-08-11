@@ -8,9 +8,9 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
     public class RegisterController : Controller
     {
-        private readonly UserManager<AppUser> _usermanager;
+        private readonly UserManager<Appuser> _usermanager;
         
-        public RegisterController(UserManager<AppUser> usermanager)
+        public RegisterController(UserManager<Appuser> usermanager)
         {
             _usermanager = usermanager;
         }
@@ -27,7 +27,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
             {
                 return View();
             }
-            var appUser = new AppUser()
+            var appUser = new Appuser()
             {
                 Name = createNewUserDto.Name,
                 Email = createNewUserDto.Email,

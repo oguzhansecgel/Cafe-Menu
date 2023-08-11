@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.DataaccessLayer.Concrete
 {
-	public class Context : IdentityDbContext<AppUser,AppRole,int>
+	public class Context : IdentityDbContext<Appuser,AppRole,int>
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{

@@ -10,9 +10,9 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
     public class LoginController : Controller
 	{
-		private readonly SignInManager<AppUser> _signInManager;
+		private readonly SignInManager<Appuser> _signInManager;
 
-		public LoginController(SignInManager<AppUser> signInManager)
+		public LoginController(SignInManager<Appuser> signInManager)
 		{
 			_signInManager = signInManager;
 		}

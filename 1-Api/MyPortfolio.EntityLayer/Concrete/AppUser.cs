@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.EntityLayer.Concrete
 {
-    public class AppUser : IdentityUser<int>
+    public class Appuser : IdentityUser<int>
     {
         public string Name { get; set; }
         public string Surname { get; set; }

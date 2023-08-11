@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MyPortfolio.Dtos.AppUserDto;
 using MyPortfolio.Dtos.CategoryDto;
 using MyPortfolio.Dtos.ProductDto;
 using MyPortfolio.EntityLayer.Concrete;
@@ -12,12 +13,15 @@ namespace MyPortfolio.Api.AutoMapper
             CreateMap<AddProductDto, Product>().ReverseMap();
             CreateMap<UpdateProductDto, Product>().ReverseMap();
 
-            CreateMap<AddCategoryDto, Category>().ReverseMap();
+			CreateMap<AddProductDto, Category>()
+			 .ForMember(x => x.CategoryID, y => y.MapFrom(e => e.CategoryID))
+			 .ReverseMap();
+
+			CreateMap<AddCategoryDto, Category>().ReverseMap();
             CreateMap<UpdateCategoryDto, Category>().ReverseMap();
             CreateMap<ResultCategoryDto, Category>().ReverseMap();
-
-
-
+ 
+            
 		}
     }
 }

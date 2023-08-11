@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-    
+     
     public class AboutController : Controller
     {
 		private readonly IHttpClientFactory _httpClientFactory;
@@ -27,6 +27,8 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 				return View(values);
 			}
 			return View();
+
+
 		}
 		public async Task<IActionResult> DeleteAbout(int id)
 		{
