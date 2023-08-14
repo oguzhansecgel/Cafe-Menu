@@ -1,6 +1,8 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using Microsoft.IdentityModel.Tokens;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.BusinessLayer.Concrete;
 using MyPortfolio.BusinessLayer.Validation.Category;
@@ -10,8 +12,11 @@ using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.DataaccessLayer.EntityFramework;
 using MyPortfolio.Dtos.CategoryDto;
 using MyPortfolio.Dtos.ProductDto;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 builder.Services.AddControllers().AddFluentValidation();
 
 builder.Services.AddTransient<IValidator<AddProductDto>, CreateProductValidator>();
@@ -21,22 +26,24 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 builder.Services.AddScoped<IAboutService, AboutManager>();
 
-builder.Services.AddScoped<ICategoryDal,EfCategoryDal>();
+builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 
-builder.Services.AddScoped<IAppUserDal,EfAppUserDal>();
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
 builder.Services.AddScoped<IAppUserService, AppUserManager>();
 
+builder.Services.AddScoped<IAppRoleDal, EfAppRoleDal>();
+builder.Services.AddScoped<IAppRoleService, AppRoleManager>();
 
 builder.Services.AddCors(opt =>
 {
-	opt.AddPolicy("CafeApiCors", opts =>
-	{
-		opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-	});
+    opt.AddPolicy("CafeApiCors", opts =>
+    {
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
 });
 
 builder.Services.AddAutoMapper(typeof(Program));
@@ -53,10 +60,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-	app.UseSwagger();
-	app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-
 app.UseAuthorization();
 app.UseCors("CafeApiCors");
 app.MapControllers();

@@ -2,6 +2,7 @@
 using MyPortfolio.Dtos.AppUserDto;
 using MyPortfolio.Dtos.CategoryDto;
 using MyPortfolio.Dtos.ProductDto;
+using MyPortfolio.Dtos.RoleDto;
 using MyPortfolio.EntityLayer.Concrete;
 
 namespace MyPortfolio.Api.AutoMapper
@@ -20,8 +21,8 @@ namespace MyPortfolio.Api.AutoMapper
 			CreateMap<AddCategoryDto, Category>().ReverseMap();
             CreateMap<UpdateCategoryDto, Category>().ReverseMap();
             CreateMap<ResultCategoryDto, Category>().ReverseMap();
- 
-            
+
+            CreateMap<AddRoleDto, AppRole>().ReverseMap();
 		}
     }
 }

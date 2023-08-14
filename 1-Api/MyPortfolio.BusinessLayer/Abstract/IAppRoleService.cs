@@ -1,5 +1,4 @@
-﻿using MyPortfolio.Dtos.AppUserDto;
-using MyPortfolio.EntityLayer.Concrete;
+﻿using MyPortfolio.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.BusinessLayer.Abstract
 {
-	public interface IAppUserService : IGenericService<Appuser>
-	{
-
-		 
-	}
+    public interface IAppRoleService : IGenericService<AppRole>
+    {
+    }
 }
