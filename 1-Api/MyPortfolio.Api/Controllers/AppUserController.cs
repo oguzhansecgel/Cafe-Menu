@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.Dtos.AppUserDto;
@@ -14,25 +15,27 @@ namespace MyPortfolio.Api.Controllers
 
 
 		private readonly IAppUserService _appUserService;
+		private readonly IMapper _mapper;
+        public AppUserController(IAppUserService appUserService, IMapper mapper)
+        {
 
-		public AppUserController(IAppUserService appUserService)
-		{
+            _appUserService = appUserService;
+            _mapper = mapper;
+        }
 
-			_appUserService = appUserService;
-		}
-
-		[HttpGet]
+        [HttpGet]
 		public IActionResult AppUserList()
 		{
 			var values = _appUserService.TGetAll();
 			return Ok(values);
 		}
-        [HttpDelete("{id}")]
-        public IActionResult DeleteAppUser(int id)
+		[HttpDelete("{id}")]
+		public IActionResult DeleteAppUser(int id)
         {
             var values = _appUserService.TGetById(id);
             _appUserService.TDelete(values);
             return Ok();
         }
-    }
+		 
+	}
 }

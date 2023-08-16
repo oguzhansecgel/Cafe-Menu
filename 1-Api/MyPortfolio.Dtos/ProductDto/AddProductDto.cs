@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace MyPortfolio.Dtos.ProductDto
 		public string ProductDescription { get; set; }
 
 		
-		public string ProductImage { get; set; }
+
 
 		
 		public int CategoryID { get; set; }

@@ -1,9 +1,9 @@
 ﻿namespace MyPortfolio.UI.Dtos.UserDto
 {
-	public class ResultUserDto
+	public class UpdateUserDto
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public string Surname { get; set; }
+		public string SurName { get; set; }
 	}
 }

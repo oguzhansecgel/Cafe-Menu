@@ -42,11 +42,7 @@ namespace MyPortfolio.BusinessLayer.Validation.Products
             #endregion
 
 
-            #region productimage
-
-            RuleFor(x => x.ProductImage)
-                .NotEmpty().WithMessage("Ürün görseli boş geçilemez");
-            #endregion
+          
 
             #region productToCategory
 

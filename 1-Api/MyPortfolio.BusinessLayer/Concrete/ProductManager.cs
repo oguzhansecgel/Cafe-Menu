@@ -37,6 +37,7 @@ namespace MyPortfolio.BusinessLayer.Concrete
 
 		public void TInsert(Product t)
 		{
+
 			_productDal.Insert(t);
 		}
 

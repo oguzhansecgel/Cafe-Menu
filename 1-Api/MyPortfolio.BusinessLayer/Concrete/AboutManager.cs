@@ -13,11 +13,9 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class AboutManager : IAboutService
 	{
 		private readonly IAboutDal _aboutdal;
-		private readonly IMapper _mapper;
-		public AboutManager(IAboutDal aboutdal, IMapper mapper)
+		public AboutManager(IAboutDal aboutdal)
 		{
 			_aboutdal = aboutdal;
-			_mapper = mapper;
 		}
 
 		public void TDelete(About t)

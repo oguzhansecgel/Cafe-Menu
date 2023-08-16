@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Abstract;
@@ -18,14 +19,16 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class AppUserManager : IAppUserService
 	{
 		private readonly IAppUserDal _appUserDal;
+ 
+	 
+		public AppUserManager(IAppUserDal appUserDal)
+		{
+			_appUserDal = appUserDal;
 
+ 
+		}
 
-        public AppUserManager(IAppUserDal appUserDal)
-        {
-            _appUserDal = appUserDal;
-        }
-
-        public List<Appuser> TGetAll()
+		public List<Appuser> TGetAll()
 		{
 			return _appUserDal.GetAll();
 		}
@@ -48,7 +51,7 @@ namespace MyPortfolio.BusinessLayer.Concrete
         {
             _appUserDal.Update(t);
         }
+		 
 
-       
-    }
+	}
 }

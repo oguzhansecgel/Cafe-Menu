@@ -35,4 +35,8 @@
     <ProjectReference Include="..\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="images\product-images\" />
+  </ItemGroup>
+
 </Project>

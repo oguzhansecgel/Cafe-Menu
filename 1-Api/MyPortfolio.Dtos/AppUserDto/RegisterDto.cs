@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.Dtos.AppUserDto
 {
-	public class AddAppUserDto
+	public class RegisterDto
 	{
 		 
 		public string Name { get; set; }

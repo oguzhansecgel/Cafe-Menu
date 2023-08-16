@@ -5,11 +5,13 @@ using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.IdentityModel.Tokens;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.BusinessLayer.Concrete;
+using MyPortfolio.BusinessLayer.Validation.About;
 using MyPortfolio.BusinessLayer.Validation.Category;
 using MyPortfolio.BusinessLayer.Validation.Products;
 using MyPortfolio.DataaccessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.DataaccessLayer.EntityFramework;
+using MyPortfolio.Dtos.AboutDto.RequestModel;
 using MyPortfolio.Dtos.CategoryDto;
 using MyPortfolio.Dtos.ProductDto;
 using System.Text;
@@ -21,6 +23,8 @@ builder.Services.AddControllers().AddFluentValidation();
 
 builder.Services.AddTransient<IValidator<AddProductDto>, CreateProductValidator>();
 builder.Services.AddTransient<IValidator<AddCategoryDto>, CreateCategoryValidator>();
+builder.Services.AddTransient<IValidator<CreateAboutVM>, CreateAboutValidator>();
+builder.Services.AddTransient<IValidator<UpdateAboutVM>, UpdateAboutValidator>();
 //builder.Services.AddValidatorsFromAssemblyContaining(typeof(AddProductDto));
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
@@ -37,6 +41,9 @@ builder.Services.AddScoped<IAppUserService, AppUserManager>();
 
 builder.Services.AddScoped<IAppRoleDal, EfAppRoleDal>();
 builder.Services.AddScoped<IAppRoleService, AppRoleManager>();
+
+builder.Services.AddScoped<IProductImageDal, EfProductImageDal>();
+builder.Services.AddScoped<IProductImageService, ProductImageManager>();
 
 builder.Services.AddCors(opt =>
 {

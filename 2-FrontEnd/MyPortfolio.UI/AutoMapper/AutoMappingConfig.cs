@@ -28,8 +28,8 @@ namespace MyPortfolio.UI.AutoMapper
 
 			CreateMap<CreateNewUserDto, Appuser>().ReverseMap();
 			CreateMap<LoginUserDto, Appuser>().ReverseMap();
-
 			CreateMap<ResultUserDto, Appuser>().ReverseMap();
+			CreateMap<UpdateUserDto, Appuser>().ReverseMap();
 
 		}
     }
