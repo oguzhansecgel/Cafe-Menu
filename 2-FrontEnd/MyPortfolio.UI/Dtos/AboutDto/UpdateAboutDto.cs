@@ -1,4 +1,6 @@
-﻿namespace MyPortfolio.UI.Dtos.AboutDto
+﻿using Microsoft.Build.Framework;
+
+namespace MyPortfolio.UI.Dtos.AboutDto
 {
 	public class UpdateAboutDto
 	{

@@ -29,8 +29,4 @@
     <ProjectReference Include="..\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Validation\AppUser\" />
-  </ItemGroup>
-
 </Project>

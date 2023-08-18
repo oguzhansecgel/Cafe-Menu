@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MyPortfolio.Dtos.CategoryDto;
+using MyPortfolio.Dtos.CategoryDto.RequestModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.BusinessLayer.Validation.Category
 {
-	public class CreateCategoryValidator : AbstractValidator<AddCategoryDto>
+    public class CreateCategoryValidator : AbstractValidator<AddCategoryVM>
 	{
         public CreateCategoryValidator()
         {

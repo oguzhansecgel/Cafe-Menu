@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyPortfolio.EntityLayer.Concrete;
 using MyPortfolio.UI.Dtos.RegisterDto;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-    public class RegisterController : Controller
+	[AllowAnonymous]
+
+	public class RegisterController : Controller
     {
         private readonly UserManager<Appuser> _usermanager;
         

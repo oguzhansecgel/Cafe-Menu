@@ -18,12 +18,13 @@ namespace MyPortfolio.Api.Controllers
 		private readonly IConfiguration _configuration;
 		private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment;
 
-		public ProductImageController(IProductImageService productImageService, Context context, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment, IConfiguration configuration)
+		public ProductImageController(IProductImageService productImageService, Context context, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment, IConfiguration configuration, IMapper mapper)
 		{
 			_productImageService = productImageService;
 			_context = context;
 			_environment = environment;
 			_configuration = configuration;
+			_mapper = mapper;
 		}
 		[HttpGet]
 		public IActionResult ProductImageList()
@@ -32,7 +33,7 @@ namespace MyPortfolio.Api.Controllers
 			return Ok(values);
 		}
 		[HttpPost]
-		public IActionResult AddProductImage([FromForm] AddProductImageWithProductDto model,IFormFile file)
+		public IActionResult AddProductImage([FromForm] AddProductImageWithProductDto model)
 		{
 			if (ModelState.IsValid)
 			{
@@ -40,11 +41,11 @@ namespace MyPortfolio.Api.Controllers
 
 				if (!productExists)
 				{
-					var errorMessage = $"{model.ProductID} numarasına sahip kategori bulunamadı";
+					var errorMessage = $"{model.ProductID} numarasına sahip ürün bulunamadı";
 					return BadRequest(errorMessage);
 				}
 				var date = DateTime.Now;
-				var extension = Path.GetExtension(file.FileName);
+				var extension = Path.GetExtension(model.UploadedImage.FileName);
 				var fileName = $"{date.Day}_{date.Month}_{date.Year}_{date.Hour}_{date.Minute}_{date.Second}_{date.Millisecond}{extension}";
 				var filePath = Path.Combine(_environment.ContentRootPath, _configuration["Paths:ProductImages"], fileName);
 

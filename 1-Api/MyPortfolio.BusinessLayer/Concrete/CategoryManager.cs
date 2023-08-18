@@ -1,4 +1,5 @@
-﻿using MyPortfolio.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Abstract;
 using MyPortfolio.EntityLayer.Concrete;
 using System;
@@ -12,12 +13,11 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class CategoryManager : ICategoryService
 	{
 		private readonly ICategoryDal _categoryDal;
-
 		public CategoryManager(ICategoryDal categoryDal)
 		{
 			_categoryDal = categoryDal;
 		}
- 
+
 
 		public void TDelete(Category t)
 		{

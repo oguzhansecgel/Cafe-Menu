@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyPortfolio.Dtos.CategoryDto
+namespace MyPortfolio.Dtos.CategoryDto.RequestModel
 {
-    public class UpdateCategoryDto
+    public class AddCategoryVM
     {
-        public int CategoryID { get; set; }
-
         public string CategoryName { get; set; }
     }
 }

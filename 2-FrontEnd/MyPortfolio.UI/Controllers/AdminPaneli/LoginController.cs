@@ -6,9 +6,9 @@ using MyPortfolio.UI.Dtos.LoginDto;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-    [AllowAnonymous]
+	[AllowAnonymous]
 
-    public class LoginController : Controller
+	public class LoginController : Controller
 	{
 		private readonly SignInManager<Appuser> _signInManager;
 
@@ -24,17 +24,14 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 		[HttpPost]
 		public async Task<IActionResult> Index(LoginUserDto loginUserDto)
 		{
-			if(ModelState.IsValid) 
+			var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password, false, false);
+			if (result.Succeeded)
 			{
-				var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password, false, false);
-				if(result.Succeeded) 
-				{
-					return RedirectToAction("Index", "About");
-				}
-				else
-				{
-					return View();
-				}
+				return RedirectToAction("Index", "About");
+			}
+			else
+			{
+				return View();
 			}
 			return View();
 		}

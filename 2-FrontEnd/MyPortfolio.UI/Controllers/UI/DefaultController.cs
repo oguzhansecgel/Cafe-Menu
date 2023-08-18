@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MyPortfolio.UI.Controllers.UI
 {
     public class DefaultController : Controller
     {
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

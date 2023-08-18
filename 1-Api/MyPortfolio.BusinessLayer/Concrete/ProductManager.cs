@@ -14,11 +14,9 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class ProductManager : IProductService
 	{
 		private readonly IProductDal _productDal;
-		private readonly IMapper _mapper;
-		public ProductManager(IProductDal productDal, IMapper mapper)
+		public ProductManager(IProductDal productDal)
 		{
 			_productDal = productDal;
-			_mapper = mapper;
 		}
 
 		public List<Product> TGetAll()

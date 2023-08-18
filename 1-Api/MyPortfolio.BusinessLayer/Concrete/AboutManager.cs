@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Abstract;
+using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -13,17 +14,12 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class AboutManager : IAboutService
 	{
 		private readonly IAboutDal _aboutdal;
-		public AboutManager(IAboutDal aboutdal)
+		private readonly Context _context;
+		public AboutManager(IAboutDal aboutdal, Context context)
 		{
 			_aboutdal = aboutdal;
+			_context = context;
 		}
-
-		public void TDelete(About t)
-		{
-				
-			_aboutdal.Delete(t);
-		}
-
 		public List<About> TGetAll()
 		{
 			return _aboutdal.GetAll();
@@ -32,6 +28,12 @@ namespace MyPortfolio.BusinessLayer.Concrete
 		public About TGetById(int id)
 		{
 			return _aboutdal.GetByID(id);
+		}
+
+		public void TDelete(About t)
+		{
+			 
+			_aboutdal.Delete(t);
 		}
 
 		public void TInsert(About t)

@@ -16,8 +16,6 @@ namespace MyPortfolio.EntityLayer.Concrete
 
 		public ICollection<ProductImage> ProductImages { get; set; }
 
-
-
 		public int CategoryID { get; set; }
 		public Category Category { get; set; }
 	}

@@ -7,17 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Api", "1-Api", "{5C52DACE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-FrontEnd", "2-FrontEnd", "{84758530-A20C-41FE-8653-42B0FCB6DB69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.EntityLayer", "1-Api\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj", "{5F4E5F1D-1108-427D-A033-871630E94AF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortfolio.EntityLayer", "1-Api\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj", "{5F4E5F1D-1108-427D-A033-871630E94AF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.DataaccessLayer", "1-Api\MyPortfolio.DataaccessLayer\MyPortfolio.DataaccessLayer.csproj", "{2627328A-01D7-4063-AEA8-3BE5C59D5949}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortfolio.DataaccessLayer", "1-Api\MyPortfolio.DataaccessLayer\MyPortfolio.DataaccessLayer.csproj", "{2627328A-01D7-4063-AEA8-3BE5C59D5949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.BusinessLayer", "1-Api\MyPortfolio.BusinessLayer\MyPortfolio.BusinessLayer.csproj", "{BC79AF7D-13FB-4F02-9307-D53D0F6A9193}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortfolio.BusinessLayer", "1-Api\MyPortfolio.BusinessLayer\MyPortfolio.BusinessLayer.csproj", "{BC79AF7D-13FB-4F02-9307-D53D0F6A9193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.Dtos", "1-Api\MyPortfolio.Dtos\MyPortfolio.Dtos.csproj", "{D6B84AB1-499A-43B2-AA20-E383912855FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortfolio.Dtos", "1-Api\MyPortfolio.Dtos\MyPortfolio.Dtos.csproj", "{D6B84AB1-499A-43B2-AA20-E383912855FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.Api", "1-Api\MyPortfolio.Api\MyPortfolio.Api.csproj", "{C60BD321-3293-4F76-8FE4-D9A34F7B9967}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortfolio.Api", "1-Api\MyPortfolio.Api\MyPortfolio.Api.csproj", "{C60BD321-3293-4F76-8FE4-D9A34F7B9967}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortfolio.UI", "2-FrontEnd\MyPortfolio.UI\MyPortfolio.UI.csproj", "{9C7714B1-846F-41E9-94B2-D8F6DB85BA52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortfolio.UI", "2-FrontEnd\MyPortfolio.UI\MyPortfolio.UI.csproj", "{9C7714B1-846F-41E9-94B2-D8F6DB85BA52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

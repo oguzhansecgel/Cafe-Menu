@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.BusinessLayer.Abstract;
@@ -10,6 +11,7 @@ namespace MyPortfolio.Api.Controllers
 {
     [Route("api/[controller]")]
 	[ApiController]
+
 	public class AboutController : ControllerBase
 	{
 		private readonly IAboutService _aboutService;
