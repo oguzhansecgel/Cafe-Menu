@@ -33,6 +33,7 @@ namespace MyPortfolio.Api.AutoMapper
 
             CreateMap<RegisterViewModel,Appuser>().ReverseMap();
             CreateMap<LoginViewModel,Appuser>().ReverseMap();
+            CreateMap<UpdateAppUserViewModel,Appuser>().ReverseMap();
             CreateMap<TokenDto,Appuser>().ReverseMap();
 
             CreateMap<AddProductImageWithProductDto, ProductImage>().ReverseMap();

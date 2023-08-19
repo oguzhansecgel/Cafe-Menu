@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.EntityLayer.Concrete;
-using MyPortfolio.UI.Models.Role;
+using MyPortfolio.UI.Models.RequestModel.Role;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {

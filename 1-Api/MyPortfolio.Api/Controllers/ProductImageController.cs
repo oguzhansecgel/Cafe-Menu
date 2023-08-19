@@ -47,7 +47,7 @@ namespace MyPortfolio.Api.Controllers
 				var date = DateTime.Now;
 				var extension = Path.GetExtension(model.UploadedImage.FileName);
 				var fileName = $"{date.Day}_{date.Month}_{date.Year}_{date.Hour}_{date.Minute}_{date.Second}_{date.Millisecond}{extension}";
-				var filePath = Path.Combine(_environment.ContentRootPath, _configuration["Paths:ProductImages"], fileName);
+				var filePath = Path.Combine(_environment.WebRootPath, _configuration["Paths:ProductImages"], fileName);
 
 				using (FileStream fs = new FileStream(filePath, FileMode.Create))
 				{
@@ -66,5 +66,26 @@ namespace MyPortfolio.Api.Controllers
 			return BadRequest();
 
 		}
-	}
+        [HttpDelete("{id}")]
+
+        public IActionResult DeleteProductImage(int id)
+        {
+            var values = _productImageService.TGetById(id);
+            if (values == null) 
+            {
+                var errorMessage = $"{id} numarasına sahip ürün fotoğrafı bulunamadı";
+                return BadRequest(errorMessage);
+            }
+			//silinecek olan dosyanın yolunu alıyoruz.
+            var filePath = Path.Combine(_environment.ContentRootPath, values.Path);
+            if (System.IO.File.Exists(filePath))
+            {
+
+                System.IO.File.Delete(filePath);
+
+            }
+            _productImageService.TDelete(values);
+            return Ok();
+        }
+    }
 }

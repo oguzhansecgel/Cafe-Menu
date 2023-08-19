@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.EntityLayer.Concrete;
-using MyPortfolio.UI.Models.Role;
+using MyPortfolio.UI.Models.RequestModel.Role;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-	public class RoleController : Controller
+    public class RoleController : Controller
 	{
 		private readonly RoleManager<AppRole> _roleManager;
 

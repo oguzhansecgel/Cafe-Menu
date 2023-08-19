@@ -65,7 +65,7 @@ builder.Services.AddScoped<IProductImageDal, EfProductImageDal>();
 builder.Services.AddScoped<IProductImageService, ProductImageManager>();
 #endregion
 
-
+#region JWT TOKEN
 builder.Services.AddSwaggerGen(c =>
 {
 	c.SwaggerDoc("v1", new OpenApiInfo { Title = "JwtTokenWithIdentity", Version = "v1", Description = "JwtTokenWithIdentity test app" });
@@ -103,12 +103,20 @@ builder.Services.AddCors(opt =>
         opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
-
+builder.Services.AddAuthentication(options =>
+{
+	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+});
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
 		   .AddJwtBearer(options =>
 		   {
-			   options.TokenValidationParameters = new TokenValidationParameters
+               
+               options.TokenValidationParameters = new TokenValidationParameters
 			   {
+
 				   ValidateIssuer = true,
 				   ValidateAudience = true,
 				   ValidateLifetime = true,
@@ -119,6 +127,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 			   };
 		   });
 
+#endregion 
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -137,8 +146,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStaticFiles();
+app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors("CafeApiCors");
+
 app.MapControllers();
 
 app.Run();

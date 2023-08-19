@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.BusinessLayer.Abstract;
@@ -32,6 +33,7 @@ namespace MyPortfolio.Api.Controllers
 			return Ok(values);
 		}
 		[HttpPost]
+		[Authorize]
 		public IActionResult AddCategory(AddCategoryVM addCategoryDto)
 		{
 			if(ModelState.IsValid)

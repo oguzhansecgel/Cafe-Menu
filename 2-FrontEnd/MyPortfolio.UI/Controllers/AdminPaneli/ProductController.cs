@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using MyPortfolio.DataaccessLayer.Concrete;
-using MyPortfolio.UI.Dtos.AboutDto;
-using MyPortfolio.UI.Dtos.CategoryDto;
-using MyPortfolio.UI.Dtos.ProductDto;
+using MyPortfolio.EntityLayer.Concrete;
+using MyPortfolio.UI.Models.Dtos.ProductDto;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
@@ -19,10 +15,12 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
 		private readonly IHttpClientFactory _httpClientFactory;
 		private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostEnvironment;
-		public ProductController(IHttpClientFactory httpClientFactory, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostEnvironment)
+		private readonly IConfiguration _configuration;
+		public ProductController(IHttpClientFactory httpClientFactory, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostEnvironment, IConfiguration configuration)
 		{
 			_httpClientFactory = httpClientFactory;
 			_hostEnvironment = hostEnvironment;
+			_configuration = configuration;
 		}
 
 		public async Task<IActionResult> Index() // listeleme metodu
@@ -70,7 +68,6 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 		[HttpPost]
 		public async Task<IActionResult> AddProduct(AddProductDto model)
 		{
-			
 
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(model);
@@ -80,6 +77,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			{
 				return RedirectToAction("Index");
 			}
+
 			return View();
 
 		}

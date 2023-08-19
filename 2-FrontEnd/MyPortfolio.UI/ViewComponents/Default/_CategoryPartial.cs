@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.DataaccessLayer.Concrete;
-using MyPortfolio.UI.Dtos.CategoryDto;
+using MyPortfolio.UI.Models.Dtos.CategoryDto;
 using Newtonsoft.Json;
 
 namespace MyPortfolio.UI.ViewComponents.Default
 {
+	[AllowAnonymous]
     public class _CategoryPartial : ViewComponent
     {
 		private readonly IHttpClientFactory _httpClientFactory;

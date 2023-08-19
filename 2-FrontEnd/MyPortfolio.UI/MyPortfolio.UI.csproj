@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.20">
@@ -27,11 +30,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\1-Api\MyPortfolio.DataaccessLayer\MyPortfolio.DataaccessLayer.csproj" />
+    <ProjectReference Include="..\..\1-Api\MyPortfolio.Dtos\MyPortfolio.Dtos.csproj" />
     <ProjectReference Include="..\..\1-Api\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="image\" />
+    <Folder Include="images\product-images\" />
+    <Folder Include="wwwroot\images\product-images\" />
   </ItemGroup>
 
   <ItemGroup>

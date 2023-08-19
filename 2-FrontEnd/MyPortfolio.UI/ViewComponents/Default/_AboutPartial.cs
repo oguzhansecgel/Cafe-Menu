@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyPortfolio.UI.Dtos.AboutDto;
-using MyPortfolio.UI.Dtos.ProductDto;
+using MyPortfolio.UI.Models.Dtos.AboutDto;
 using Newtonsoft.Json;
 
 namespace MyPortfolio.UI.ViewComponents.Default

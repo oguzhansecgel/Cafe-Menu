@@ -1,4 +1,4 @@
-﻿@model UpdateAboutDto
+﻿@model UpdateAboutVM
 @{
     ViewData["Title"] = "UpdateAbout";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -10,6 +10,7 @@
     <input type="hidden" asp-for="AboutID" />
     <label>Başlık</label>
     <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
     <br />
     <label>İçerik</label>
     <input type="text" asp-for="Description" class="form-control" />

@@ -1,4 +1,4 @@
-﻿@model UpdateCategoryDto
+﻿@model UpdateCategoryVM
 
 @{
     ViewData["Title"] = "UpdateCategory";
@@ -9,6 +9,7 @@
     <input type="hidden" asp-for="CategoryID" />
     <label>Başlık</label>
     <input type="text" asp-for="CategoryName" class="form-control" />
+    <span asp-validation-for="CategoryName" class="text-warning"></span>
     <br />
     <button class="btn btn-outline-success">Kategori Güncelle</button>
 </form>

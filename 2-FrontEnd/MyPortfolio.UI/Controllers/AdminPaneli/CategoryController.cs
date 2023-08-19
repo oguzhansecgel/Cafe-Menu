@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MyPortfolio.DataaccessLayer.Concrete;
-using MyPortfolio.UI.Dtos.AboutDto;
-using MyPortfolio.UI.Dtos.CategoryDto;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.UI.Models.Dtos.CategoryDto;
+using MyPortfolio.UI.Models.RequestModel.Category;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-     
+
     public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -40,8 +37,12 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddCategory(ResultCategoryDto model)
+        public async Task<IActionResult> AddCategory(AddCategoryVM model)
         {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
 
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
@@ -77,14 +78,14 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
+				var values = JsonConvert.DeserializeObject<UpdateCategoryVM>(jsonData);
 				return View(values);
 			}
 			return View();
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> UpdateCategory(UpdateCategoryDto model)
+		public async Task<IActionResult> UpdateCategory(UpdateCategoryVM model)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(model);

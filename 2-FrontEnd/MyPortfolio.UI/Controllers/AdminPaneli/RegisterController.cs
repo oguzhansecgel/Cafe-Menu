@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.EntityLayer.Concrete;
-using MyPortfolio.UI.Dtos.RegisterDto;
+using MyPortfolio.UI.Models.Dtos.RegisterDto;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-	[AllowAnonymous]
+    [AllowAnonymous]
 
 	public class RegisterController : Controller
     {

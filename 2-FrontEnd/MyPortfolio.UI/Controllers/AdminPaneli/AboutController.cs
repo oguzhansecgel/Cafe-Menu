@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyPortfolio.UI.Dtos.AboutDto;
+using MyPortfolio.UI.Models.RequestModel.About;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-    
+
     public class AboutController : Controller
     {
 		private readonly IHttpClientFactory _httpClientFactory;
@@ -23,7 +23,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			if (responserMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responserMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<UpdateAboutDto>>(jsonData);
+				var values = JsonConvert.DeserializeObject<List<UpdateAboutVM>>(jsonData);
 				return View(values);
 			}
 			return View();
@@ -45,19 +45,22 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 		[HttpGet]
         public async Task<IActionResult> UpdateAbout(int id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5185/api/About/{id}");
-            if (responseMessage.IsSuccessStatusCode)
+            if (ModelState.IsValid)
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateAboutDto>(jsonData);
-                return View(values);
+                var client = _httpClientFactory.CreateClient();
+                var responseMessage = await client.GetAsync($"http://localhost:5185/api/About/{id}");
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                    var values = JsonConvert.DeserializeObject<UpdateAboutVM>(jsonData);
+                    return View(values);
+                }
             }
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateAbout(UpdateAboutDto model)
+        public async Task<IActionResult> UpdateAbout(UpdateAboutVM model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);

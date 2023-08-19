@@ -13,7 +13,8 @@ namespace MyPortfolio.Api.Controllers
 {
     [Route("api/[controller]")]
 	[ApiController]
-	public class AppUserController : ControllerBase
+
+    public class AppUserController : ControllerBase
 	{
 
 
@@ -31,15 +32,30 @@ namespace MyPortfolio.Api.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult AppUserList()
+
+        public IActionResult AppUserList()
 		{
 			var values = _appUserService.TGetAll();
 			return Ok(values);
 		}
+		[HttpDelete("{id}")]
+		public IActionResult DeleteAppUser(int id)
+		{
+			var usersExist = _context.Users.Any(x => x.Id == id);
+			if (!usersExist)
+			{
+				var errorMessage = $"{id} kimlik numarasına sahip kullanıcı bulunamadı ve silme işlemi gerçekleşmedi";
+				return BadRequest(errorMessage);
+			}
 
+			var values = _appUserService.TGetById(id);
+			_appUserService.TDelete(values);
+			return Ok();
+		}
 
 		[HttpPost("register")]
-		public async Task<IActionResult> Register(RegisterViewModel registerDto)
+
+        public async Task<IActionResult> Register(RegisterViewModel registerDto)
 		{
 
 			var usersMail = _context.Users.Any(x => x.Email == registerDto.Email);
@@ -73,33 +89,20 @@ namespace MyPortfolio.Api.Controllers
 
 			return Ok();
 
-			//_appUserService.TInsert(appUser);
 
 
 		}
-		private bool IsValidUserName(string password)
-		{
-			 
-			return !string.IsNullOrWhiteSpace(password) &&
-				   password.Any(char.IsUpper) &&
-				   password.Any(char.IsDigit) &&
-				   password.Any(ch => !char.IsLetterOrDigit(ch));
-		}
-		
-		[HttpDelete("{id}")]
-		public IActionResult DeleteAppUser(int id)
-        {
-            var values = _appUserService.TGetById(id);
-            _appUserService.TDelete(values);
-            return Ok();
-        }
 
 
 		[HttpPost("login")]
-		public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
 		{
 			var result = await _appUserService.Login(loginViewModel);
 			return Ok(result);
 		}
-	}
+
+    
+
+    }
 }

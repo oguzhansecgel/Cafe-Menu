@@ -7,24 +7,22 @@
 <form method="post">
 	<label>Ürün Adı</label>
 	<input type="text" asp-for="ProductName" class="form-control" />
-	@* <span asp-validation-for="Name" class="text-danger"></span>*@
+	 <span asp-validation-for="ProductName" class="text-danger"></span>
 	<br />
 	<label>Ürün Fiyatı</label>
 	<input type="text" asp-for="ProductPrice" class="form-control" />
-	@* <span asp-validation-for="Name" class="text-danger"></span>*@
-	<br />
-	@*<input type="text" asp-for="ProductImage" class="form-control" />*@
-	@* <span asp-validation-for="Name" class="text-danger"></span>*@
+	<span asp-validation-for="ProductPrice" class="text-danger"></span>
 	<br />
 	<label>Ürün Açıklaması</label>
 	<input type="text" asp-for="ProductDescription" class="form-control" />
-	@* <span asp-validation-for="Name" class="text-danger"></span>*@
+	<span asp-validation-for="ProductDescription" class="text-danger"></span>
+	<br />
+	<label>Ürün Resmi</label>
+	<input type="file" asp-for="ProductImage" class="form-control-file" />
 	<br />
 	<label>Ürün Kategorisi</label>
-	@Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new{@class="from-control"})
+	@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
 
-
-	@* <span asp-validation-for="Name" class="text-danger"></span>*@
 	<br />
 	<button class="btn btn-primary">Ürünü Ekle</button>
 </form>

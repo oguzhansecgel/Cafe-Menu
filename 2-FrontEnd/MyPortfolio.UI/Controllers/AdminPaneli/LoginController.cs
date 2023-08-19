@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.EntityLayer.Concrete;
-using MyPortfolio.UI.Dtos.LoginDto;
+using MyPortfolio.UI.Models.Dtos.LoginDto;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-	[AllowAnonymous]
+    [AllowAnonymous]
 
 	public class LoginController : Controller
 	{
@@ -27,13 +27,13 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password, false, false);
 			if (result.Succeeded)
 			{
-				return RedirectToAction("Index", "About");
+				return RedirectToAction("Index", "AdminPanelWelcome");
 			}
 			else
 			{
 				return View();
 			}
-			return View();
+
 		}
 	}
 }
