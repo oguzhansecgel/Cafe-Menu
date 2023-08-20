@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Folder Include="AboutDto\Dto\" />
+    <Folder Include="AppUserDto\Dto\" />
     <Folder Include="CategoryDto\Dto\" />
   </ItemGroup>
 

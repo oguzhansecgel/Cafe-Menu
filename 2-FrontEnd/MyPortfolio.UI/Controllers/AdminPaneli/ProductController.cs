@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.EntityLayer.Concrete;
@@ -21,12 +22,14 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			_httpClientFactory = httpClientFactory;
 			_hostEnvironment = hostEnvironment;
 			_configuration = configuration;
+
 		}
 
 		public async Task<IActionResult> Index() // listeleme metodu
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responserMessage = await client.GetAsync("http://localhost:5185/api/Product");
+			
 			if (responserMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responserMessage.Content.ReadAsStringAsync();
@@ -61,14 +64,15 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 											   Value = x.CategoryID.ToString()
 										   }
 										   ).ToList();
+
+
 			ViewBag.v1 = values;
 
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> AddProduct(AddProductDto model)
+		public async Task<IActionResult> AddProduct(AddProductVM model)
 		{
-
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(model);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -98,14 +102,14 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
+				var values = JsonConvert.DeserializeObject<UpdateProductVM>(jsonData);
 				return View(values);
 			}
 			return View();
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> UpdateProduct(UpdateProductDto model)
+		public async Task<IActionResult> UpdateProduct(UpdateProductVM model)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(model);

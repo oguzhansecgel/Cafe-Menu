@@ -1,6 +1,6 @@
 ﻿namespace MyPortfolio.UI.Models.Dtos.ProductDto
 {
-    public class UpdateProductDto
+    public class UpdateProductVM
     {
         public int ProductID { get; set; }
         public decimal ProductPrice { get; set; }

@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
-using MyPortfolio.Dtos.AboutDto.RequestModel;
 using MyPortfolio.Dtos.AppUserDto.RequestModel;
 using MyPortfolio.EntityLayer.Concrete;
 
@@ -13,7 +11,7 @@ namespace MyPortfolio.Api.Controllers
 {
     [Route("api/[controller]")]
 	[ApiController]
-
+	
     public class AppUserController : ControllerBase
 	{
 
@@ -98,8 +96,19 @@ namespace MyPortfolio.Api.Controllers
 
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
 		{
-			var result = await _appUserService.Login(loginViewModel);
-			return Ok(result);
+			 
+			var user = await _userManager.FindByNameAsync(loginViewModel.Username);
+			 
+			if(user != null && await _userManager.CheckPasswordAsync(user, loginViewModel.Password))
+			{
+				return Ok();
+
+			}
+			else
+			{
+				var errorMessage = $"Girdiğiniz bilgiler yanlış";
+				return BadRequest(errorMessage);
+			}
 		}
 
     

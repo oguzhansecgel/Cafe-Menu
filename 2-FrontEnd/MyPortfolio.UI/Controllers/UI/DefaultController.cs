@@ -10,8 +10,9 @@ namespace MyPortfolio.UI.Controllers.UI
         {
             return View();
         }
+		[AllowAnonymous]
 
-        public IActionResult GetContentDetail([FromQuery]int categoryId)
+		public IActionResult GetContentDetail([FromQuery]int categoryId)
         {
             return ViewComponent("_ContentPartial", new
             {

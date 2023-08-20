@@ -7,8 +7,8 @@ using Newtonsoft.Json;
 namespace MyPortfolio.UI.ViewComponents.Default
 {
 
-
-    public class _ContentPartial : ViewComponent 
+	[AllowAnonymous]
+	public class _ContentPartial : ViewComponent 
     {
 		private readonly IHttpClientFactory _httpClientFactory;
 

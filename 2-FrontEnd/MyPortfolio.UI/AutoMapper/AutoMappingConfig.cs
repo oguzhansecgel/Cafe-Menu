@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MyPortfolio.Dtos.AppUserDto.Dto;
 using MyPortfolio.EntityLayer.Concrete;
 using MyPortfolio.UI.Models.Dtos.AboutDto;
 using MyPortfolio.UI.Models.Dtos.CategoryDto;
@@ -11,11 +10,10 @@ using MyPortfolio.UI.Models.Dtos.UserDto;
 using MyPortfolio.UI.Models.RequestModel.About;
 using MyPortfolio.UI.Models.RequestModel.Category;
 using MyPortfolio.UI.Models.RequestModel.Role;
-using NuGet.Common;
 
 namespace MyPortfolio.UI.AutoMapper
 {
-    public class AutoMappingConfig : Profile 
+	public class AutoMappingConfig : Profile 
 	{
 
         public AutoMappingConfig()
@@ -29,8 +27,8 @@ namespace MyPortfolio.UI.AutoMapper
 
 
             CreateMap<ResultProductDto, Product>().ReverseMap();
-			CreateMap<AddProductDto, Product>().ReverseMap();
-			CreateMap<UpdateProductDto, Product>().ReverseMap();
+			CreateMap<AddProductVM, Product>().ReverseMap();
+			CreateMap<UpdateProductVM, Product>().ReverseMap();
 
 
 			CreateMap<ResultProductImageDto, ProductImage>().ReverseMap();

@@ -19,22 +19,22 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<Appuser,AppRole>().AddEntityFrameworkStores<Context>();
+
 builder.Services.AddMvc(config =>
 {
-    var policy = new AuthorizationPolicyBuilder()
-    .RequireAuthenticatedUser()
-    .Build();
-    config.Filters.Add(new AuthorizeFilter(policy));
-    config.Filters.Add(new AllowAnonymousFilter());
+	var policy = new AuthorizationPolicyBuilder()
+	.RequireAuthenticatedUser()
+	.Build();
+	config.Filters.Add(new AuthorizeFilter(policy));
 });
 
-//giriþ yapýlmadýðýnda yönlendirilecek sayfa
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
-    options.LoginPath = "/Login/Index/";
+	options.Cookie.HttpOnly = true;
+	options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+	options.LoginPath = "/Login/Index/";
 });
+
 var app = builder.Build();
 
 
@@ -50,6 +50,7 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
+
 app.UseAuthentication();
 app.MapControllerRoute(
 	name: "default",

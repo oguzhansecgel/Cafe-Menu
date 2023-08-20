@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.EntityLayer.Concrete;
 using MyPortfolio.UI.Models.RequestModel.Role;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
+   
     public class RoleAssignController : Controller
     {
         private readonly UserManager<Appuser> _userManager;
@@ -17,6 +19,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
         public IActionResult Index()
         {
+
             var values = _userManager.Users.ToList();
             return View(values);
         }

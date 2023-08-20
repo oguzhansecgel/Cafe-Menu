@@ -11,7 +11,7 @@ namespace MyPortfolio.Dtos.ProductDto
 	public class AddProductDto
 	{
 		
-		public Decimal ProductPrice { get; set; }
+		public decimal ProductPrice { get; set; }
 
 		public string ProductName { get; set; }
 

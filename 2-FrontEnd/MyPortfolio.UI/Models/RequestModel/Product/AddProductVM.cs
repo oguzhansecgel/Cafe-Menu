@@ -3,7 +3,7 @@
 
 namespace MyPortfolio.UI.Models.Dtos.ProductDto
 {
-    public class AddProductDto
+    public class AddProductVM
     {
         public int ProductID { get; set; }
 

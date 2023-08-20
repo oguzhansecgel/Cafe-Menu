@@ -12,6 +12,7 @@ namespace MyPortfolio.Api.Controllers
 {
     [Route("api/[controller]")]
 	[ApiController]
+	[AllowAnonymous]
 	public class CategoryController : ControllerBase
 	{
 		private readonly ICategoryService _categoryService;		
@@ -33,7 +34,6 @@ namespace MyPortfolio.Api.Controllers
 			return Ok(values);
 		}
 		[HttpPost]
-		[Authorize]
 		public IActionResult AddCategory(AddCategoryVM addCategoryDto)
 		{
 			if(ModelState.IsValid)

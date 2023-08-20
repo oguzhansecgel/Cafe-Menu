@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MyPortfolio.Dtos.AboutDto.RequestModel;
-using MyPortfolio.Dtos.AppUserDto.Dto;
 using MyPortfolio.Dtos.AppUserDto.RequestModel;
 using MyPortfolio.Dtos.CategoryDto;
 using MyPortfolio.Dtos.CategoryDto.RequestModel;
@@ -11,7 +10,7 @@ using MyPortfolio.EntityLayer.Concrete;
 
 namespace MyPortfolio.Api.AutoMapper
 {
-    public class AutoMappingConfig : Profile
+	public class AutoMappingConfig : Profile
 	{
         public AutoMappingConfig()
         {
@@ -34,7 +33,6 @@ namespace MyPortfolio.Api.AutoMapper
             CreateMap<RegisterViewModel,Appuser>().ReverseMap();
             CreateMap<LoginViewModel,Appuser>().ReverseMap();
             CreateMap<UpdateAppUserViewModel,Appuser>().ReverseMap();
-            CreateMap<TokenDto,Appuser>().ReverseMap();
 
             CreateMap<AddProductImageWithProductDto, ProductImage>().ReverseMap();
 

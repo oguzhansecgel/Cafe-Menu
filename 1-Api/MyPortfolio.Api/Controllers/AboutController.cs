@@ -25,7 +25,7 @@ namespace MyPortfolio.Api.Controllers
 		}
 
 		[HttpGet]
-        public IActionResult AboutList()
+		public IActionResult AboutList()
 		{
 			var values = _aboutService.TGetAll();
 			return Ok(values);

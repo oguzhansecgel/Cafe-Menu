@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.UI.Models.Dtos.CategoryDto;
 using MyPortfolio.UI.Models.RequestModel.Category;
 using Newtonsoft.Json;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
-
+    [AllowAnonymous]
     public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
