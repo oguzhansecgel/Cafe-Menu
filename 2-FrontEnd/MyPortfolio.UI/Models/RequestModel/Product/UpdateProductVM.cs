@@ -7,7 +7,7 @@
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
 
-        public int ProductImageID { get; set; }
+        public IFormFile ProductImage { get; set; }
         public int CategoryID { get; set; }
 
     }

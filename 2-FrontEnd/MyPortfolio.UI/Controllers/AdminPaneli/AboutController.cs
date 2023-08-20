@@ -7,7 +7,7 @@ using System.Text;
 namespace MyPortfolio.UI.Controllers.AdminPaneli
 {
 
-    public class AboutController : Controller
+	public class AboutController : Controller
     {
 		private readonly IHttpClientFactory _httpClientFactory;
 
@@ -15,6 +15,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 		{
 			_httpClientFactory = httpClientFactory;
 		}
+
 
 		public async Task<IActionResult> Index() // listeleme metodu
 		{

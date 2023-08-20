@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.UI.Models.Dtos.CategoryDto;
 using MyPortfolio.UI.Models.RequestModel.Category;
@@ -33,18 +34,13 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
         }
 
         [HttpGet]
-        public IActionResult AddCategory()
+		public IActionResult AddCategory()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddCategory(AddCategoryVM model)
+		public async Task<IActionResult> AddCategory(AddCategoryVM model)
         {
-            if(!ModelState.IsValid)
-            {
-                return View();
-            }
-
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");

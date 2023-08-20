@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\1-Api\MyPortfolio.BusinessLayer\MyPortfolio.BusinessLayer.csproj" />
     <ProjectReference Include="..\..\1-Api\MyPortfolio.DataaccessLayer\MyPortfolio.DataaccessLayer.csproj" />
     <ProjectReference Include="..\..\1-Api\MyPortfolio.Dtos\MyPortfolio.Dtos.csproj" />
     <ProjectReference Include="..\..\1-Api\MyPortfolio.EntityLayer\MyPortfolio.EntityLayer.csproj" />

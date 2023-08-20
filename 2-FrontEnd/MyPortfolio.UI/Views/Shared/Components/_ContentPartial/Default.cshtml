@@ -10,25 +10,26 @@
 		<div class="col-lg-8 col-xl-12 order-lg-1">
 			<div class="tab-content">
 				<div class="tab-pane fade active show" id="tabs-1-1">
-                    @foreach (var item in Model)
-                    {
-                        <div class="event-item-classic">
-                            @foreach (var image in item.ProductImage)
-                            {
-                                <div class="event-item-classic-figure">
-                                    <img src="http://localhost:5185/@image.Path" alt="" width="109" height="109">
-                                </div>
-                            }
-                            <div class="event-item-classic-caption">
-                                <p class="events-time">@item.ProductPrice ₺</p>
-                                <h4 class="event-item-classic-title">@item.ProductName</h4>
-                                <div class="event-item-classic-text">
-                                    <p>@item.ProductDescription</p>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                    
+					@foreach (var item in Model)
+					{
+						<div class="event-item-classic">
+							@foreach (var image in item.ProductImage)
+							{
+								<div class="event-item-classic-figure">
+									<img src="http://localhost:5185/@image.Path" alt="" width="109" height="109">
+									<img src="http://localhost:5100/@image.Path" alt="" width="109" height="109">
+								</div>
+							}
+							<div class="event-item-classic-caption">
+								<p class="events-time">@item.ProductPrice ₺</p>
+								<h4 class="event-item-classic-title">@item.ProductName</h4>
+								<div class="event-item-classic-text">
+									<p>@item.ProductDescription</p>
+								</div>
+							</div>
+						</div>
+					}
+
 				</div>
 			</div>
 		</div>

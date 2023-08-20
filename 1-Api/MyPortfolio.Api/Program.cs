@@ -40,7 +40,7 @@ builder.Services.AddTransient<IValidator<UpdateAboutVM>, UpdateAboutValidator>()
 
 builder.Services.AddTransient<IValidator<LoginViewModel>, LoginValidator>();
 builder.Services.AddTransient<IValidator<RegisterViewModel>, RegisterValidator>();
-
+ 
 #endregion
 
 #region Dependency Injection 
@@ -67,14 +67,14 @@ builder.Services.AddScoped<IProductImageService, ProductImageManager>();
 
 
 builder.Services.AddAutoMapper(typeof(Program));
-
+ 
 // Add services to the container.
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+ 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -86,7 +86,6 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

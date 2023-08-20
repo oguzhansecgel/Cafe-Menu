@@ -32,6 +32,7 @@ namespace MyPortfolio.UI.AutoMapper
 
 
 			CreateMap<ResultProductImageDto, ProductImage>().ReverseMap();
+			CreateMap<AddProductVM, ProductImage>().ReverseMap();
 
 
             CreateMap<CreateNewUserDto, Appuser>().ReverseMap();

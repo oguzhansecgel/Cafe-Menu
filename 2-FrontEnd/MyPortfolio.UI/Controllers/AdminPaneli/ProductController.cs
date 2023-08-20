@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.EntityLayer.Concrete;
 using MyPortfolio.UI.Models.Dtos.ProductDto;
 using Newtonsoft.Json;
+using System.IO;
+using System.Net.Http;
 using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
@@ -17,19 +21,21 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 		private readonly IHttpClientFactory _httpClientFactory;
 		private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostEnvironment;
 		private readonly IConfiguration _configuration;
-		public ProductController(IHttpClientFactory httpClientFactory, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostEnvironment, IConfiguration configuration)
-		{
-			_httpClientFactory = httpClientFactory;
-			_hostEnvironment = hostEnvironment;
-			_configuration = configuration;
+		private readonly IProductImageService _productImageService;
+		private readonly IMapper _mapper;
+        public ProductController(IHttpClientFactory httpClientFactory, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostEnvironment, IConfiguration configuration, IProductImageService productImageService)
+        {
+            _httpClientFactory = httpClientFactory;
+            _hostEnvironment = hostEnvironment;
+            _configuration = configuration;
+            _productImageService = productImageService;
+        }
 
-		}
-
-		public async Task<IActionResult> Index() // listeleme metodu
+        public async Task<IActionResult> Index() // listeleme metodu
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responserMessage = await client.GetAsync("http://localhost:5185/api/Product");
-			
+
 			if (responserMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responserMessage.Content.ReadAsStringAsync();
@@ -67,23 +73,26 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
 
 			ViewBag.v1 = values;
-
 			return View();
 		}
 		[HttpPost]
 		public async Task<IActionResult> AddProduct(AddProductVM model)
 		{
+
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(model);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
 			var responseMessage = await client.PostAsync("http://localhost:5185/api/Product/", stringContent);
-			if (responseMessage.IsSuccessStatusCode)
-			{
-				return RedirectToAction("Index");
+
+
+
+            if (responseMessage.IsSuccessStatusCode)
+			{				
+					return RedirectToAction("Index");
 			}
 
-			return View();
 
+			return View();
 		}
 
 		[HttpGet]
@@ -115,6 +124,30 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 			var jsonData = JsonConvert.SerializeObject(model);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
 			var responseMessage = await client.PutAsync($"http://localhost:5185/api/Product/", stringContent);
+
+            var date = DateTime.Now;
+			var extension = Path.GetExtension(model.ProductImage.FileName);
+			var fileName = $"{date.Day}_{date.Month}_{date.Year}_{date.Hour}_{date.Minute}_{date.Second}_{date.Millisecond}{extension}";
+			var filePath = Path.Combine(_hostEnvironment.WebRootPath, _configuration["Paths:ProductImages"], fileName);
+
+			using (FileStream fs = new FileStream(filePath, FileMode.Create))
+			{
+				model.ProductImage.CopyTo(fs);
+				fs.Close();
+			}
+
+			var productImage = new ProductImage()
+			{
+				Path = Path.Combine(_configuration["Paths:ProductImages"], fileName),
+				ProductID = model.ProductID,
+			};
+
+
+
+
+			_productImageService.TInsert(productImage);
+
+
 
 			if (responseMessage.IsSuccessStatusCode)
 			{
