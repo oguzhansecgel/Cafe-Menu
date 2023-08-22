@@ -1,4 +1,5 @@
-﻿using MyPortfolio.DataaccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyPortfolio.DataaccessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,7 @@ namespace MyPortfolio.DataaccessLayer.Repository
 			_context.SaveChanges();
 		}
 
+		
 		
 	}
 }

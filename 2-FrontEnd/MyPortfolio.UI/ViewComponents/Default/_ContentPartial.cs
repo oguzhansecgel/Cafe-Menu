@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.UI.Models.Dtos.ImageDto;
 using MyPortfolio.UI.Models.Dtos.ProductDto;
-using MyPortfolio.UI.Models.Dtos.ProductImageDto;
 using Newtonsoft.Json;
 
 namespace MyPortfolio.UI.ViewComponents.Default

@@ -4,22 +4,27 @@
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form method="post">
     <input type="hidden" asp-for="ProductID" />
     <label>Ürün Adı</label>
     <input type="text" asp-for="ProductName" class="form-control" />
+    <span asp-validation-for="ProductName" class="text-danger"></span>
+
     <br />
     <label>Ürün Fiyatı</label>
     <input type="text" asp-for="ProductPrice" class="form-control" />
-    <br />
-    <label>Ürün Resmi</label>
-    <input type="file" asp-for="ProductImage" class="form-control-file" />
+    <span asp-validation-for="ProductPrice" class="text-danger"></span>
+
     <br />
     <label>Ürün Açıklaması</label>
     <input type="text" asp-for="ProductDescription" class="form-control" />
+    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+
     <br />
     <label>Ürün Kategorisi</label>
     @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v1,new{@class="from-control"})
+    <span asp-validation-for="CategoryID" class="text-danger"></span>
+
     <br />
     <button class="btn btn-outline-success">Ürün Güncelle</button>
 </form>

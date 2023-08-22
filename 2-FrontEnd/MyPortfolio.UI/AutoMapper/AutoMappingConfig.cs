@@ -2,9 +2,9 @@
 using MyPortfolio.EntityLayer.Concrete;
 using MyPortfolio.UI.Models.Dtos.AboutDto;
 using MyPortfolio.UI.Models.Dtos.CategoryDto;
+using MyPortfolio.UI.Models.Dtos.ImageDto;
 using MyPortfolio.UI.Models.Dtos.LoginDto;
 using MyPortfolio.UI.Models.Dtos.ProductDto;
-using MyPortfolio.UI.Models.Dtos.ProductImageDto;
 using MyPortfolio.UI.Models.Dtos.RegisterDto;
 using MyPortfolio.UI.Models.Dtos.UserDto;
 using MyPortfolio.UI.Models.RequestModel.About;
@@ -38,7 +38,6 @@ namespace MyPortfolio.UI.AutoMapper
             CreateMap<CreateNewUserDto, Appuser>().ReverseMap();
 			CreateMap<LoginUserDto, Appuser>().ReverseMap();
 			CreateMap<ResultUserDto, Appuser>().ReverseMap();
-			CreateMap<UpdateUserDto, Appuser>().ReverseMap();
 
 			CreateMap<RoleAssingVM, AppRole>().ReverseMap();
 

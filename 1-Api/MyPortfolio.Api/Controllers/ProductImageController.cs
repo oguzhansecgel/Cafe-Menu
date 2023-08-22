@@ -76,8 +76,7 @@ namespace MyPortfolio.Api.Controllers
                 var errorMessage = $"{id} numarasına sahip ürün fotoğrafı bulunamadı";
                 return BadRequest(errorMessage);
             }
-			//silinecek olan dosyanın yolunu alıyoruz.
-            var filePath = Path.Combine(_environment.ContentRootPath, values.Path);
+            var filePath = Path.Combine(_environment.WebRootPath, values.Path);
             if (System.IO.File.Exists(filePath))
             {
 

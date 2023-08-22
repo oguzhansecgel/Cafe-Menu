@@ -1,0 +1,14 @@
+﻿@model AddProductImageVM
+@{
+    ViewData["Title"] = "CreateProductImage";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="ProductId" />
+    <label>Ürün Resmi</label>
+    <input type="file" asp-for="FileImage" class="form-control-file" />
+    <span asp-validation-for="FileImage" class="text-warning"></span>
+    <br />
+    <button class="btn btn-outline-success">Ürüne Görsel Ekle</button>
+</form>

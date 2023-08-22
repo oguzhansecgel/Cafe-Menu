@@ -20,6 +20,8 @@
 
 	<label>Ürün Kategorisi</label>
 	@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+	<span asp-validation-for="CategoryID" class="text-danger"></span>
+
 
 	<br />
 	<button class="btn btn-primary">Ürünü Ekle</button>

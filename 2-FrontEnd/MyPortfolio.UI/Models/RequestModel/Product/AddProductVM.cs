@@ -17,9 +17,8 @@ namespace MyPortfolio.UI.Models.Dtos.ProductDto
        [Required(ErrorMessage = "Ürün Açıklaması Boş Bırakılamaz.")]
 
         public string ProductDescription { get; set; }
- 
 
-		public IFormFile ProductImage { get; set; }
+        [Required(ErrorMessage ="Kategori Boş Geçilemez")]
         public int CategoryID { get; set; }
 
     }

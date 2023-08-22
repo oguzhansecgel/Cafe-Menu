@@ -4,17 +4,18 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
-
+<a href="/Product/AddProduct/" class="btn btn-info">Yeni Ürün Girişi</a>
+<br />
+<br />
 <table class="table table-bordered">
 	<tr>
 		<th>Ürün adı</th>
 		<th>Ürün fiyatı</th>
-		<th>Ürün fotoğrafı</th>
 		<th>Ürün açıklaması</th>
 		<th>Kategorisi</th>
- 
 		<th>Güncelle</th>
 		<th>Sil</th>
+		<th>Görsel Ekle</th>
 	</tr>
 	@foreach (var item in Model)
 	{
@@ -23,7 +24,6 @@
 			<tr>
 				<th>@item.ProductName</th>
 				<th>@item.ProductPrice</th>
-				<th></th>
 				<th>@item.ProductDescription</th>
 				<th>@item.CategoryID</th>
  
@@ -31,8 +31,8 @@
 
 				<td><a href="/Product/UpdateProduct/@item.ProductID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
 				<td><a href="/Product/DeleteProduct/@item.ProductID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+				<td><a href="/AdminImageProduct/CreateProductImage/@item.ProductID" class="btn mb-1 btn-rounded btn-outline-info">Görsel Ekle</a></td>
 			</tr>
 		}
 	}
 </table>
-<a href="/Product/AddProduct/" class="btn btn-info">Yeni Ürün Girişi</a>

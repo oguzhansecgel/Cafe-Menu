@@ -1,0 +1,32 @@
+﻿@model List<ResultProductImageDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+@*@foreach (var item in Model)
+{
+	<img src="http://localhost:5100/@item.Path" alt="" width="109" height="109">
+	<td><a href="/AdminImageProduct/DeleteProductImage/@item.ProductID" class="btn mb-1 btn-rounded btn-outline-info">Görsel Sil</a></td>
+
+}
+*@
+<table class="table table-bordered">
+	<tr>
+		<th>Ürün ID</th>
+		<th>Ürün fotoğrafı</th>
+		<th>Sil</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		
+
+			<tr>
+				<td>@item.ProductID</td>
+				<td><img src="http://localhost:5185/@item.Path" alt="" width="109" height="109"></td>
+				<td><a href="/AdminImageProduct/DeleteProductImage/@item.Id" class="btn mb-1 btn-rounded btn-outline-warning">Görsel Sil</a></td>
+
+			</tr>
+		
+	}
+</table>

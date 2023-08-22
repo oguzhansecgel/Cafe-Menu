@@ -1,5 +1,6 @@
 ﻿using MyPortfolio.EntityLayer.Concrete;
-using MyPortfolio.UI.Models.Dtos.ProductImageDto;
+using MyPortfolio.UI.Models.Dtos.ImageDto;
+ 
 
 namespace MyPortfolio.UI.Models.Dtos.ProductDto
 {
@@ -9,11 +10,8 @@ namespace MyPortfolio.UI.Models.Dtos.ProductDto
         public decimal ProductPrice { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-
-
-
+ 
 		public ICollection<ResultProductImageDto> ProductImage { get; set; }
-
 
 		public int CategoryID { get; set; }
     }
