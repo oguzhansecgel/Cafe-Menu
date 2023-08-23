@@ -20,6 +20,7 @@ namespace MyPortfolio.UI.AutoMapper
         {
 			CreateMap<ResultAboutDto, About>().ReverseMap();
 			CreateMap<UpdateAboutVM, About>().ReverseMap();
+			CreateMap<CreateAboutVM, About>().ReverseMap();
 
 			CreateMap<AddCategoryVM, Category>().ReverseMap();
 			CreateMap<UpdateCategoryVM, Category>().ReverseMap();

@@ -1,9 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
 using MyPortfolio.Dtos.ProductDto;
@@ -11,7 +7,7 @@ using MyPortfolio.EntityLayer.Concrete;
 
 namespace MyPortfolio.Api.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
     public class ProductController : ControllerBase
 	{

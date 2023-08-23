@@ -42,8 +42,7 @@ namespace MyPortfolio.DataaccessLayer.Repository
 			_context.Update(t);
 			_context.SaveChanges();
 		}
-
-		
+ 
 		
 	}
 }

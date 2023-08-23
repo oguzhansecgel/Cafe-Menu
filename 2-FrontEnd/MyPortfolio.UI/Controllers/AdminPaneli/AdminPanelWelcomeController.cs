@@ -16,13 +16,15 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
 		public IActionResult Index()
         {
-			var totalProductCount = _context.Products.Count(); // Products yerine ürünler tablosunun adını kullanın
+
+			var totalProductCount = _context.Products.Count();  
             var totalCategoryCount = _context.Categories.Count();
 
             var viewModel = new CountProductOrCategory
 			{
 				Product = totalProductCount,
 				Category = totalCategoryCount,
+
 			};
 			
 			return View(viewModel);

@@ -1,16 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Concrete;
-using MyPortfolio.EntityLayer.Concrete;
 using MyPortfolio.UI.Models.Dtos.ProductDto;
-using MyPortfolio.UI.Models.RequestModel.ProductImage;
 using Newtonsoft.Json;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 
 namespace MyPortfolio.UI.Controllers.AdminPaneli
@@ -33,6 +26,7 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
 		public async Task<IActionResult> Index() // listeleme metodu
 		{
+
 			var client = _httpClientFactory.CreateClient();
 			var responserMessage = await client.GetAsync("http://localhost:5185/api/Product");
 

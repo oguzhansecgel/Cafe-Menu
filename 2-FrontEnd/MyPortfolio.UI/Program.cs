@@ -25,9 +25,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<Appuser,AppRole>().AddEntityFrameworkStores<Context>();
 
-
-builder.Services.AddScoped<IProductImageService, ProductImageManager>();
-builder.Services.AddScoped<IProductImageDal, EfProductImageDal>();
+ 
 
 
 builder.Services.AddMvc(config =>
@@ -45,7 +43,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 	options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 	options.LoginPath = "/Login/Index/";
 });
- 
+
 var app = builder.Build();
 
 
@@ -59,6 +57,8 @@ app.UseStaticFiles();
 app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseRouting();
+
+
 
 app.UseAuthorization();
 app.UseAuthentication();

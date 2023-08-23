@@ -1,11 +1,7 @@
 ﻿using MyPortfolio.BusinessLayer.Abstract;
 using MyPortfolio.DataaccessLayer.Abstract;
+using MyPortfolio.Dtos.ProductImageDto;
 using MyPortfolio.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyPortfolio.BusinessLayer.Concrete
 {
@@ -41,5 +37,7 @@ namespace MyPortfolio.BusinessLayer.Concrete
 		{
 			_productImageDal.Update(t);
 		}
+
+		 
 	}
 }

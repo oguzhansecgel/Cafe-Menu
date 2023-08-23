@@ -31,7 +31,28 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 
 
 		}
-		public async Task<IActionResult> DeleteAbout(int id)
+
+        [HttpGet]
+        public IActionResult AddAbout()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddAbout(CreateAboutVM model)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(model);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("http://localhost:5185/api/About", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+
+        }
+
+        public async Task<IActionResult> DeleteAbout(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.DeleteAsync($"http://localhost:5185/api/About/{id}");

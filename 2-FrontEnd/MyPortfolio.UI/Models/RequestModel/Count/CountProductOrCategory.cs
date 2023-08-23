@@ -4,5 +4,6 @@
 	{
 		public int Product { get; set; }
 		public int Category { get; set; }
+
 	}
 }
