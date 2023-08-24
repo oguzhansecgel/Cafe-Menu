@@ -23,3 +23,4 @@ namespace MyPortfolio.UI.Models.Dtos.ProductDto
 
     }
 }
+

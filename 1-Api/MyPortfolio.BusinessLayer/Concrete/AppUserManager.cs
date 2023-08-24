@@ -10,15 +10,9 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class AppUserManager : IAppUserService
 	{
 		private readonly IAppUserDal _appUserDal;
-		private readonly IConfiguration _configuration;
-		private readonly Context _context;
-		private readonly UserManager<Appuser> _userManager;
-		public AppUserManager(IAppUserDal appUserDal, Context context, IConfiguration configuration, UserManager<Appuser> userManager)
+		public AppUserManager(IAppUserDal appUserDal)
 		{
 			_appUserDal = appUserDal;
-			_context = context;
-			_configuration = configuration;
-			_userManager = userManager;
 		}
 
 		public List<Appuser> TGetAll()

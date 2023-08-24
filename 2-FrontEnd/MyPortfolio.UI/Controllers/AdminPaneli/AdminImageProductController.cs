@@ -17,19 +17,17 @@ namespace MyPortfolio.UI.Controllers.AdminPaneli
 	public class AdminImageProductController : Controller
 	{
 
-		private readonly Context _context;
 		private readonly IHttpClientFactory _httpClientFactory;
 		private readonly IConfiguration _configuration;
 		private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment;
 
 
-		public AdminImageProductController(IHttpClientFactory httpClientFactory, IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment, Context context)
+		public AdminImageProductController(IHttpClientFactory httpClientFactory, IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
 		{
 			_httpClientFactory = httpClientFactory;
 			_configuration = configuration;
 			_environment = environment;
 
-			_context = context;
 		}
 
 		public async Task<IActionResult> Index()

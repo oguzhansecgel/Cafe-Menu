@@ -14,11 +14,10 @@ namespace MyPortfolio.BusinessLayer.Concrete
 	public class AboutManager : IAboutService
 	{
 		private readonly IAboutDal _aboutdal;
-		private readonly Context _context;
-		public AboutManager(IAboutDal aboutdal, Context context)
+		public AboutManager(IAboutDal aboutdal)
 		{
 			_aboutdal = aboutdal;
-			_context = context;
+			
 		}
 		public List<About> TGetAll()
 		{
